@@ -1,0 +1,11 @@
+{
+	"manifest_version": 2,
+	"name": "Tabflow",
+	"version": "1.0.0",
+	
+	"description": "Turn the new tab page into a beautiful, minimal gradient.",
+	
+	"chrome_url_overrides" : {
+		"newtab": "tabflow.html"
+	}
+}
