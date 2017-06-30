@@ -2,12 +2,14 @@
 var textDisplay = document.getElementById("text-display");
 var timeElem = document.getElementById("time");
 var dateElem = document.getElementById("date");
-
 var container = document.getElementById("container");
 var optionsElem = document.getElementById("options");
 
 // flags
 var showingOptions = false;
+
+// storage object for options
+var options = {};
 
 // a bunch of these are from https://webgradients.com/
 var colorPairs = [
@@ -34,7 +36,7 @@ function updateTime() {
 }
 
 function updateDate() {
-	dateElem.innerHTML = moment().format("dddd, MMMM Do, YYYY");;
+	dateElem.innerHTML = moment().format("dddd, MMMM Do, YYYY");
 }
 
 function pickColors() {
@@ -51,7 +53,7 @@ function pickColors() {
 		// if this is NOT the last color...
 		if (color != colorPairs[randNum].length - 1) {
 			// add a comma before the next one
-			colorString += ", "
+			colorString += ", ";
 		}
 	}
 	
@@ -60,23 +62,23 @@ function pickColors() {
 	container.style.animation = "Animation 8s ease-in-out infinite";
 }
 
-function toggleOptions() {
-	// if the options aren't displaying, show them
-	if (!showingOptions) {
-		textDisplay.style.display = "none";
-		optionsElem.style.display = "block";
-		showingOptions = true;
-	} else {
-		// show the time
-		textDisplay.style.display = "block";
-		optionsElem.style.display = "none";
-		showingOptions = false;
+document.addEventListener("DOMContentLoaded", function() {
+	var checkboxes = document.querySelectorAll("input[type='checkbox']");
+	for (var i = 0; i < checkboxes.length; i++) {
+		checkboxes[i].onchange = updatePrefs;
 	}
-}
 
-var timeInterval = setInterval(updateTime, 999);
-var dateInterval = setInterval(updateDate, 1500);
+	var buttons = document.querySelectorAll("button");
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].onclick = toggleOptions;
+	}
 
-updateTime();
-updateDate();
-pickColors();
+	restoreOptions();
+	
+	setInterval(updateTime, 999);
+	setInterval(updateDate, 1500);
+
+	updateTime();
+	updateDate();
+	pickColors();
+});

@@ -5,6 +5,10 @@
 	
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 	
+	"permissions": [
+		"storage"
+	],
+	
 	"chrome_url_overrides" : {
 		"newtab": "tabflow.html"
 	}

@@ -3,7 +3,7 @@
 <head>
 	<title>New Tab</title>
 	
-	<script src="https://use.fontawesome.com/8da8798c06.js"></script>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
 	<script src="moment.min.js"></script>
 	
@@ -198,22 +198,22 @@
 			<h2 id="date"></h2>
 		</div>
 		<div id="options">
-			<button role="button" onclick="toggleOptions()" id="close-icon" class="icon">
+			<button role="button" id="close-icon" class="icon">
 				<span class="fa fa-times" aria-label="Options"></span>
 			</button>
 			<h1>Options</h1>
 			<h2>Display</h2>
 			<ul class="options-list">
 				<li><label class="switch"> 
-					<input type="checkbox" checked>
+					<input type="checkbox" checked id="showTime">
 					<div class="slider"></div>
 				</label>Show time</li>
 				<li><label class="switch"> 
-					<input type="checkbox" checked>
+					<input type="checkbox" checked id="showDate">
 					<div class="slider"></div>
 				</label>Show date</li>
 				<li><label class="switch"> 
-					<input type="checkbox">
+					<input type="checkbox" id="use24HourTime">
 					<div class="slider"></div>
 				</label>Use 24 hour time</li>
 			</ul>
@@ -222,10 +222,11 @@
 			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
 			<a href="http://fontawesome.io"><span class="fa fa-external-link" aria-hidden="true" style="font-size:0.9rem; padding-right:3px"></span>Font Awesome</a> by Dave Gandy</p>
 		</div>
-		<button role="button" onclick="toggleOptions()" id="info-icon" class="icon">
+		<button role="button" id="info-icon" class="icon">
 			<span class="fa fa-cog" aria-label="Options"></span>
 		</button>
 	</div>
 	<script src="main.js"></script>
+	<script src="options.js"></script>
 </body>
 </html>
