@@ -3,6 +3,7 @@
 <head>
 	<title>New Tab</title>
 	
+	<script src="https://use.fontawesome.com/8da8798c06.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
 	
 	<style>
@@ -38,11 +39,28 @@
 			font-family: 'Quicksand', sans-serif;
 			text-shadow: 0px 0px 100px #969696;
 		}
+		
+		#info-icon {
+			color: #ffffff;
+			/*margin: 10px;*/
+			opacity: 0.6;
+			text-shadow: 0px 0px 50px #969696;
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			font-size: 1.2rem;
+			transition: .3s;
+		}
+		
+		#info-icon:hover {
+			opacity: 1;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<h1 id="time"></h1>
+		<span class="fa fa-cog" id="info-icon"></span>
 	</div>
 	<script src="main.js"></script>
 </body>
