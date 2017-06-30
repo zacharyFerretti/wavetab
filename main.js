@@ -1,5 +1,10 @@
+// page elements
 var timeElem = document.getElementById("time");
 var container = document.getElementById("container");
+var optionsElem = document.getElementById("options");
+
+// flags
+var showingOptions = false;
 
 // a bunch of these are from https://webgradients.com/
 var colorPairs = [
@@ -47,6 +52,20 @@ function pickColors() {
 	container.style.background = "linear-gradient(45deg, " + colorString + ")";
 	container.style.backgroundSize = "600% 600%";
 	container.style.animation = "Animation 8s ease-in-out infinite";
+}
+
+function toggleOptions() {
+	// if the options aren't displaying, show them
+	if (!showingOptions) {
+		timeElem.style.display = "none";
+		optionsElem.style.display = "block";
+		showingOptions = true;
+	} else {
+		// show the time
+		timeElem.style.display = "block";
+		optionsElem.style.display = "none";
+		showingOptions = false;
+	}
 }
 
 var timer = setInterval(updateTime, 999);

@@ -40,16 +40,51 @@
 			text-shadow: 0px 0px 100px #969696;
 		}
 		
-		#info-icon {
+		#options {
+			font-family: 'Quicksand', sans-serif;
 			color: #ffffff;
-			/*margin: 10px;*/
-			opacity: 0.6;
 			text-shadow: 0px 0px 50px #969696;
+			font-size: 1.2rem;
+			text-align: left;
+			font-weight: 200;
+			
+			display: none;
+			height: 1%;
+			align-self: center;
+			min-width: 50%;
+			position: relative;
+			
+			border: 2px solid #ffffff;
+			padding: 20px;
+			border-radius: 10px;
+			
+			background: rgba(255, 255, 255, 0.25);
+		}
+		
+		#options h2 {
+			margin-top: 1px;
+		}
+		
+		.icon {
+			color: #ffffff;
+			text-shadow: 0px 0px 50px #969696;
+			font-size: 1.2rem;
+			background: none;
+			border: none;
+		}
+		
+		#info-icon {
+			opacity: 0.6;
+			transition: .3s;
 			position: absolute;
 			bottom: 10px;
 			right: 10px;
-			font-size: 1.2rem;
-			transition: .3s;
+		}
+		
+		#close-icon {
+			position: absolute;
+			top: 10px;
+			right: 10px;
 		}
 		
 		#info-icon:hover {
@@ -60,7 +95,16 @@
 <body>
 	<div id="container">
 		<h1 id="time"></h1>
-		<span class="fa fa-cog" id="info-icon"></span>
+		<div id="options">
+			<button role="button" onclick="toggleOptions()" id="close-icon" class="icon">
+				<span class="fa fa-times" aria-label="Options"></span>
+			</button>
+			<h2>Options</h2>
+			<p>etc blah blah blah</p>
+		</div>
+		<button role="button" onclick="toggleOptions()" id="info-icon" class="icon">
+			<span class="fa fa-cog" aria-label="Options"></span>
+		</button>
 	</div>
 	<script src="main.js"></script>
 </body>
