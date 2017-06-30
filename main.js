@@ -30,14 +30,11 @@ var colorPairs = [
 ];
 
 function updateTime() {
-	var d = new Date().toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
-	timeElem.innerHTML = d;
+	timeElem.innerHTML = moment().format("h:mm A");
 }
 
 function updateDate() {
-	var d = new Date();
-	var dString = d.toDateString();
-	dateElem.innerHTML = dString;
+	dateElem.innerHTML = moment().format("dddd, MMMM Do, YYYY");;
 }
 
 function pickColors() {
