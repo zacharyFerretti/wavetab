@@ -13,6 +13,15 @@
 			margin: 0;
 		}
 		
+		a {
+			/*text-decoration: none;*/
+			color: #ffffff;
+		}
+		
+		hr {
+			border-style: solid;
+		}
+		
 		#container {
 			min-height: 100%;
 			
@@ -60,7 +69,6 @@
 			text-shadow: 0px 0px 50px #969696;
 			font-size: 1.2rem;
 			text-align: left;
-			font-weight: 200;
 			
 			display: none;
 			height: 1%;
@@ -72,11 +80,23 @@
 			padding: 20px;
 			border-radius: 10px;
 			
-			background: rgba(255, 255, 255, 0.25);
+			background: rgba(119, 119, 119, 0.25);
+		}
+		
+		#options h1 {
+			margin-top: 1px;
+			margin-bottom: 1px;
 		}
 		
 		#options h2 {
-			margin-top: 1px;
+			margin-top: 20px;
+			margin-bottom: 5px;
+			font-size: 1.5rem;
+		}
+		
+		#options p {
+			margin-top: 2px;
+			margin-bottom: 2px;
 		}
 		
 		.icon {
@@ -104,6 +124,71 @@
 		#info-icon:hover {
 			opacity: 1;
 		}
+		
+		.options-list {
+			list-style: none;
+			padding-left: 0px;
+			margin-top: 5px;
+			margin-bottom: 0px;
+		}
+		
+		.options-list li {
+			margin-bottom: 10px;
+		}
+		
+		/* css toggle switch modified from https://www.w3schools.com/howto/howto_css_switch.asp */
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 50px;
+			height: 20px;
+			top: 3px;
+			margin-right: 10px;
+		}
+
+		/* Hide default HTML checkbox */
+		.switch input {display:none;}
+
+		/* the slider */
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(255, 255, 255, 0);
+			border: 1px solid #ffffff;
+			-webkit-transition: .4s;
+			transition: .4s;
+			border-radius: 20px;
+		}
+
+		/* slider circle */
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 25px;
+			width: 25px;
+			left: -2px;
+			bottom: -4px;
+			background-color: white;
+			-webkit-transition: .4s;
+			transition: .4s;
+			border-radius: 50%;
+		}
+
+		input:checked + .slider {
+			background-color: #dddddd;
+		}
+
+		input:focus + .slider {
+			box-shadow: 0 0 1px #dddddd;
+		}
+
+		input:checked + .slider:before {
+			transform: translateX(28px);
+		}
 	</style>
 </head>
 <body>
@@ -116,8 +201,26 @@
 			<button role="button" onclick="toggleOptions()" id="close-icon" class="icon">
 				<span class="fa fa-times" aria-label="Options"></span>
 			</button>
-			<h2>Options</h2>
-			<p>etc blah blah blah</p>
+			<h1>Options</h1>
+			<h2>Display</h2>
+			<ul class="options-list">
+				<li><label class="switch"> 
+					<input type="checkbox" checked>
+					<div class="slider"></div>
+				</label>Show time</li>
+				<li><label class="switch"> 
+					<input type="checkbox" checked>
+					<div class="slider"></div>
+				</label>Show date</li>
+				<li><label class="switch"> 
+					<input type="checkbox">
+					<div class="slider"></div>
+				</label>Use 24 hour time</li>
+			</ul>
+			
+			<h2>Info</h2>
+			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
+			<a href="http://fontawesome.io"><span class="fa fa-external-link" aria-hidden="true" style="font-size:0.9rem; padding-right:3px"></span>Font Awesome</a> by Dave Gandy</p>
 		</div>
 		<button role="button" onclick="toggleOptions()" id="info-icon" class="icon">
 			<span class="fa fa-cog" aria-label="Options"></span>
