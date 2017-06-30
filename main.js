@@ -1,5 +1,8 @@
 // page elements
+var textDisplay = document.getElementById("text-display");
 var timeElem = document.getElementById("time");
+var dateElem = document.getElementById("date");
+
 var container = document.getElementById("container");
 var optionsElem = document.getElementById("options");
 
@@ -31,6 +34,12 @@ function updateTime() {
 	timeElem.innerHTML = d;
 }
 
+function updateDate() {
+	var d = new Date();
+	var dString = d.toDateString();
+	dateElem.innerHTML = dString;
+}
+
 function pickColors() {
 	// pick a random gradient from the array
 	var randNum = Math.floor(Math.random() * colorPairs.length);
@@ -57,17 +66,20 @@ function pickColors() {
 function toggleOptions() {
 	// if the options aren't displaying, show them
 	if (!showingOptions) {
-		timeElem.style.display = "none";
+		textDisplay.style.display = "none";
 		optionsElem.style.display = "block";
 		showingOptions = true;
 	} else {
 		// show the time
-		timeElem.style.display = "block";
+		textDisplay.style.display = "block";
 		optionsElem.style.display = "none";
 		showingOptions = false;
 	}
 }
 
-var timer = setInterval(updateTime, 999);
+var timeInterval = setInterval(updateTime, 999);
+var dateInterval = setInterval(updateDate, 1500);
+
 updateTime();
+updateDate();
 pickColors();
