@@ -18,7 +18,7 @@ function toggleOptions() {
 
 // save preference in chrome sync data
 function updatePrefs(event) {
-	options[this.id] = event.target.checked;
+	options[event.target.id] = event.target.checked;
 	chrome.storage.sync.set(options);
 }
 
@@ -29,6 +29,7 @@ function restoreOptions() {
 		showDate: true,
 		use24HourTime: false
 	}, function(items) {;
+		// set up switches according to stored options
 		timeOption.checked = items.showTime;
 		dateOption.checked = items.showDate;
 		use24Time.checked = items.use24HourTime;
@@ -43,6 +44,26 @@ function restoreOptions() {
 	});
 }
 
-function updateDisplay() {
-	
+function updateDisplay(changes) {
+	for (key in changes) {
+		var storageChange = changes[key];
+
+		// hide/display elements that changed
+		switch(key) {
+			case "showTime":
+				if (storageChange.newValue == false) {
+					timeElem.style.display = "none";
+				} else {
+					timeElem.style.display = "block";
+				}
+				break;
+			case "showDate":
+				if (storageChange.newValue == false) {
+					dateElem.style.display = "none";
+				} else {
+					dateElem.style.display = "block";
+				}
+				break;
+		}
+	}
 }

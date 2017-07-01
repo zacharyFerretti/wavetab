@@ -5,16 +5,16 @@
 	
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
-	<script src="moment.min.js"></script>
+	<script src="src/moment.min.js"></script>
 	
 	<style>
+		/* base css */
 		html, body {
 			height: 100%;
 			margin: 0;
 		}
 		
 		a {
-			/*text-decoration: none;*/
 			color: #ffffff;
 		}
 		
@@ -22,6 +22,7 @@
 			border-style: solid;
 		}
 		
+		/* page background */
 		#container {
 			min-height: 100%;
 			
@@ -40,6 +41,7 @@
 			100%{background-position:0% 99%}
 		}
 		
+		/* time & date */
 		#text-display {
 			color: #ffffff;
 			font-family: 'Quicksand', sans-serif;
@@ -63,6 +65,7 @@
 			margin-bottom: 0px;
 		}
 		
+		/* options */
 		#options {
 			font-family: 'Quicksand', sans-serif;
 			color: #ffffff;
@@ -99,6 +102,18 @@
 			margin-bottom: 2px;
 		}
 		
+		.options-list {
+			list-style: none;
+			padding-left: 0px;
+			margin-top: 5px;
+			margin-bottom: 0px;
+		}
+		
+		.options-list li {
+			margin-bottom: 10px;
+		}
+		
+		/* font awesome icons */
 		.icon {
 			color: #ffffff;
 			text-shadow: 0px 0px 50px #969696;
@@ -123,17 +138,6 @@
 		
 		#info-icon:hover {
 			opacity: 1;
-		}
-		
-		.options-list {
-			list-style: none;
-			padding-left: 0px;
-			margin-top: 5px;
-			margin-bottom: 0px;
-		}
-		
-		.options-list li {
-			margin-bottom: 10px;
 		}
 		
 		/* css toggle switch modified from https://www.w3schools.com/howto/howto_css_switch.asp */
@@ -177,15 +181,15 @@
 			transition: .4s;
 			border-radius: 50%;
 		}
-
+		
 		input:checked + .slider {
 			background-color: #dddddd;
 		}
-
+		
 		input:focus + .slider {
 			box-shadow: 0 0 1px #dddddd;
 		}
-
+		
 		input:checked + .slider:before {
 			transform: translateX(28px);
 		}
@@ -220,13 +224,13 @@
 			
 			<h2>Info</h2>
 			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
-			<a href="http://fontawesome.io"><span class="fa fa-external-link" aria-hidden="true" style="font-size:0.9rem; padding-right:3px"></span>Font Awesome</a> by Dave Gandy</p>
+			<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
 		</div>
 		<button role="button" id="info-icon" class="icon">
 			<span class="fa fa-cog" aria-label="Options"></span>
 		</button>
 	</div>
-	<script src="main.js"></script>
-	<script src="options.js"></script>
+	<script src="src/main.js"></script>
+	<script src="src/options.js"></script>
 </body>
 </html>

@@ -83,29 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	
 	// add event listener for when storage changes
-	chrome.storage.onChanged.addListener(function(changes, namespace) {
-		for (key in changes) {
-			var storageChange = changes[key];
-			
-			// hide/display elements that changed
-			switch(key) {
-				case "showTime":
-					if (storageChange.newValue == false) {
-						timeElem.style.display = "none";
-					} else {
-						timeElem.style.display = "block";
-					}
-					break;
-				case "showDate":
-					if (storageChange.newValue == false) {
-						dateElem.style.display = "none";
-					} else {
-						dateElem.style.display = "block";
-					}
-					break;
-			}
-		}
-	});
+	chrome.storage.onChanged.addListener(updateDisplay);
 
 	restoreOptions();
 	
