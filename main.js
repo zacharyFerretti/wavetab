@@ -32,7 +32,13 @@ var colorPairs = [
 ];
 
 function updateTime() {
-	timeElem.innerHTML = moment().format("h:mm A");
+	chrome.storage.sync.get("use24HourTime", function(items) {
+		if (!items.use24HourTime) {
+			timeElem.innerHTML = moment().format("h:mm A");
+		} else {
+			timeElem.innerHTML = moment().format("HH:mm");
+		}
+	});
 }
 
 function updateDate() {
@@ -62,16 +68,44 @@ function pickColors() {
 	container.style.animation = "Animation 8s ease-in-out infinite";
 }
 
+// when the page loads, do all this stuff
 document.addEventListener("DOMContentLoaded", function() {
+	// set up event listeners for checkboxes
 	var checkboxes = document.querySelectorAll("input[type='checkbox']");
 	for (var i = 0; i < checkboxes.length; i++) {
 		checkboxes[i].onchange = updatePrefs;
 	}
 
+	// setup event listeners for buttons
 	var buttons = document.querySelectorAll("button");
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].onclick = toggleOptions;
 	}
+	
+	// add event listener for when storage changes
+	chrome.storage.onChanged.addListener(function(changes, namespace) {
+		for (key in changes) {
+			var storageChange = changes[key];
+			
+			// hide/display elements that changed
+			switch(key) {
+				case "showTime":
+					if (storageChange.newValue == false) {
+						timeElem.style.display = "none";
+					} else {
+						timeElem.style.display = "block";
+					}
+					break;
+				case "showDate":
+					if (storageChange.newValue == false) {
+						dateElem.style.display = "none";
+					} else {
+						dateElem.style.display = "block";
+					}
+					break;
+			}
+		}
+	});
 
 	restoreOptions();
 	

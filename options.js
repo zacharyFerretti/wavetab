@@ -1,3 +1,8 @@
+// elements
+var timeOption = document.getElementById('showTime');
+var dateOption = document.getElementById('showDate');
+var use24Time = document.getElementById('use24HourTime');
+
 // switch between showing the options panel and the time/date
 function toggleOptions() {
 	if (!showingOptions) {
@@ -18,14 +23,26 @@ function updatePrefs(event) {
 }
 
 function restoreOptions() {
-	// Use default value
+	// Use default values
 	chrome.storage.sync.get({
 		showTime: true,
 		showDate: true,
 		use24HourTime: false
 	}, function(items) {;
-		document.getElementById('showTime').checked = items.showTime;
-		document.getElementById('showDate').checked = items.showDate;
-		document.getElementById('use24HourTime').checked = items.use24HourTime;
+		timeOption.checked = items.showTime;
+		dateOption.checked = items.showDate;
+		use24Time.checked = items.use24HourTime;
+		
+		// if settings say elements don't display, then hide them
+		if (!items.showTime) {
+			timeElem.style.display = "none";
+		}
+		if (!items.showDate) {
+			dateElem.style.display = "none";
+		}
 	});
+}
+
+function updateDisplay() {
+	
 }
