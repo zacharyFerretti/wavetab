@@ -21,14 +21,21 @@ var colorPairs = [
 	["#a18cd1", "#fbc2eb"], // purple
 	["#ff9a9e", "#fecfef"], // pink
 	["#fbc2eb", "#a6c1ee"], // blue, purple
-	["#a1c4fd", "#c2e9fb"], // blue
-	["#d4fc79", "#96e6a1"], // green
-	["#cfd9df", "#e2ebf0"], // silver
+	["#8db8ff", "#a1e1ff"], // blue
+	["#bbff6d", "#7de08b"], // green
 	["#43e97b", "#38f9d7"], // green, teal
 	["#5ee7df", "#b490ca"], // blue, purple
 	["#667eea", "#764ba2"], // deep purple
-	["#cd9cf2", "#f6f3ff"], // lighter purple
-	["#6a11cb", "#2575fc"] // deep blue
+	["#c995f0", "#dbcfff"], // lighter purple
+	["#6a11cb", "#2575fc"], // deep blue
+	["#fffa86", "#ffdd25"], // yellow, orange
+	["#d686ff", "#ffdd25"], // purple, orange
+	["#f33f58", "#ffdd25"], // red, orange
+	["#f33f58", "#8d25ff"], // red-pink, purple
+	["#3ff36e", "#8d25ff"], // green, purple
+	["#3ff3da", "#8d25ff"], // light blue, purple
+	["#7dded1", "#8d25ff"], // muted blue,  muted green
+	["#d47dde", "#f5c070"] // muted purple,  muted orange
 ];
 
 function updateTime() {
