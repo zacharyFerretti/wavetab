@@ -1,7 +1,9 @@
 {
 	"manifest_version": 2,
-	"name": "Tabflow",
-	"version": "0.0.1",
+	"name": "WaveTab",
+	"version": "0.1.0",
+	"version_name": "0.1.0 beta",
+	"author": "Liz Wigglesworth",
 	
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 	
@@ -10,6 +12,6 @@
 	],
 	
 	"chrome_url_overrides" : {
-		"newtab": "tabflow.html"
+		"newtab": "wavetab.html"
 	}
 }
