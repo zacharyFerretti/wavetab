@@ -34,8 +34,10 @@ var colorPairs = [
 	["#f33f58", "#8d25ff"], // red-pink, purple
 	["#3ff36e", "#8d25ff"], // green, purple
 	["#3ff3da", "#8d25ff"], // light blue, purple
-	["#7dded1", "#8d25ff"], // muted blue,  muted green
-	["#d47dde", "#f5c070"] // muted purple,  muted orange
+	["#7dded1", "#61e2a1"], // muted blue,  muted green
+	["#d47dde", "#f5c070"], // muted purple,  muted orange
+	["#84fab0", "#8fd3f4"], // light green,  light blue (012 tempting azure)
+	["#8a81fe", "#51d7f4"] // light purple,  medium teal - brand color*
 ];
 
 function updateTime() {
