@@ -1,7 +1,8 @@
 {
 	"manifest_version": 2,
 	
-	"name": "WaveTab",
+	"name": "WaveTab - Minimal New Tab Page",
+	"short_name": "WaveTab",
 	"author": "Liz Wigglesworth",
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 	
@@ -18,6 +19,8 @@
 	"permissions": [
 		"storage"
 	],
+	
+	 "offline_enabled": true,
 	
 	"chrome_url_overrides" : {
 		"newtab": "wavetab.html"
