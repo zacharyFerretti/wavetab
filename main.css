@@ -1,0 +1,55 @@
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+a {
+	color: #ffffff;
+}
+
+hr {
+	border-style: solid;
+}
+
+/* page background */
+#container {
+	min-height: 100%;
+
+	background: linear-gradient(45deg, #5edde8, #1171a3);
+	background-size: 600% 600%;
+	animation: Animation 15s ease-in-out infinite;
+
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	
+	color: #ffffff;
+}
+
+@keyframes Animation { 
+	0%{background-position:0% 99%}
+	50%{background-position:100% 2%}
+	100%{background-position:0% 99%}
+}
+
+.content {
+	margin: 30px;
+	padding: 15px;
+	
+	width: 75%;
+	height: 1%;
+	
+	border: 2px solid #ffffff;
+	border-radius: 10px;
+	
+	text-align: left;
+	font-family: sans-serif;
+	font-size: 1.2rem;
+	
+	background: rgba(211, 211, 211, 0.25);
+}
+
+.content h1 {
+	text-align: center;
+	font-size: 3rem;
+}
