@@ -4,16 +4,20 @@ html, body {
 }
 
 a {
-	color: #a3f5ff;
-	text-shadow: 2px 2px 10px #1171a3;
+	color: #e7f7ff;
+	text-shadow: 2px 2px 5px #1171a3;
 }
 
 a:hover {
-	color: #08e4ff;
+	color: #bdf8ff;
 }
 
 hr {
 	border-style: solid;
+}
+
+img {
+	margin: 3px;
 }
 
 /* page background */
@@ -29,6 +33,7 @@ hr {
 	justify-content: center;
 	
 	color: #ffffff;
+	text-shadow: 1px 1px 30px #1171a3;
 }
 
 @keyframes Animation { 
@@ -79,22 +84,14 @@ nav li {
 	margin-bottom: 15px;
 }
 
-.row {
-	overflow: auto;
-	padding: 2px;
+h2 {
+	font-size: 4rem;
 }
 
-.half-col {
-	width: 49%;
-	float: left;
-	padding: 3px;
-	margin: 2px
+h3 {
+	font-size: 3rem;
 }
 
-#gif-showcase {
-	width: 100%;
-}
-
-.centered {
-	text-align: center;
+.webstore-btn {
+	margin: 50px auto;
 }
