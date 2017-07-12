@@ -4,7 +4,12 @@ html, body {
 }
 
 a {
-	color: #ffffff;
+	color: #a3f5ff;
+	text-shadow: 2px 2px 10px #1171a3;
+}
+
+a:hover {
+	color: #08e4ff;
 }
 
 hr {
@@ -32,12 +37,30 @@ hr {
 	100%{background-position:0% 99%}
 }
 
+nav {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+nav ul {
+	list-style: none;
+	padding: 2px;
+	margin: 1px;
+}
+
+nav li {
+	border: 2px solid #ffffff;
+	border-radius: 10px;
+	background: rgba(211, 211, 211, 0.25);
+	display: inline;
+	width: 50%;
+	margin: 0px 10px;
+	padding: 5px;
+}
+
 .content {
 	margin: 30px;
 	padding: 15px;
-	
-	/*width: 75%;*/
-	/*height: 1%;*/
 	
 	border: 2px solid #ffffff;
 	border-radius: 10px;
@@ -51,7 +74,9 @@ hr {
 
 .content h1 {
 	text-align: center;
-	font-size: 4rem;
+	font-size: 5rem;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 
 .row {
@@ -72,8 +97,4 @@ hr {
 
 .centered {
 	text-align: center;
-}
-
-.webstore-btn {
-	
 }
