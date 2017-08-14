@@ -35,11 +35,11 @@ function restoreOptions() {
 		use24Time.checked = items.use24HourTime;
 		
 		// if settings say elements don't display, then hide them
-		if (!items.showTime) {
-			timeElem.style.display = "none";
+		if (items.showTime) {
+			timeElem.style.display = "block";
 		}
-		if (!items.showDate) {
-			dateElem.style.display = "none";
+		if (items.showDate) {
+			dateElem.style.display = "block";
 		}
 	});
 }
