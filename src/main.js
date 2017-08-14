@@ -7,6 +7,7 @@ var optionsElem = document.getElementById("options");
 
 // flags
 var showingOptions = false;
+var showWelcomeMsg = true;
 
 // storage object for options
 var options = {};
@@ -77,6 +78,10 @@ function pickColors() {
 	container.style.animation = "Animation 8s ease-in-out infinite";
 }
 
+function hideWelcomeMessage() {
+	document.getElementById("welcomeMsg").style.display = "none";
+}
+
 // when the page loads, do all this stuff
 document.addEventListener("DOMContentLoaded", function() {
 	// set up event listeners for checkboxes
@@ -86,10 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	// setup event listeners for buttons
-	var buttons = document.querySelectorAll("button");
-	for (var i = 0; i < buttons.length; i++) {
-		buttons[i].onclick = toggleOptions;
-	}
+	document.getElementById("info-icon").onclick = toggleOptions;
+	document.getElementById("close-icon").onclick = toggleOptions;
+	document.getElementById("close-welcome").onclick = hideWelcomeMessage;
 	
 	// add event listener for when storage changes
 	chrome.storage.onChanged.addListener(updateDisplay);
@@ -102,4 +106,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	updateTime();
 	updateDate();
 	pickColors();
+	
+	// show welcome message if necessary
+	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
+	chrome.storage.sync.get({
+		showWelcomeMsg: true
+	}, function (items) {
+		if (items.showWelcomeMsg) {
+			document.getElementById("welcomeMsg").style.display = "block";
+			chrome.storage.sync.set({showWelcomeMsg: false});
+		}
+	});
 });

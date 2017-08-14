@@ -118,6 +118,44 @@
 			margin-bottom: 10px;
 		}
 		
+		/* welcome message */
+		#welcomeMsg {
+			font-family: 'Quicksand', sans-serif;
+			color: #ffffff;
+			font-size: 1rem;
+			text-align: left;
+			
+			border: 2px solid #ffffff;
+			padding: 5px;
+			border-radius: 10px;
+			background: rgba(119, 119, 119, 0.4);
+			
+			position: absolute;
+			bottom: 10px;
+			right: 60px;
+			display: none;
+		}
+		
+		#welcomeMsg h3, p {
+			margin: 2px;
+		}
+		
+		#welcomeMsg .icon {
+			font-size: 1.1rem;
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+		
+		#welcomeMsg .popover {
+			position: absolute;
+			top: 35px;
+			right: -10px;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 10px solid #ffffff;
+		}
+		
 		/* font awesome icons */
 		.icon {
 			color: #ffffff;
@@ -233,6 +271,14 @@
 			<h2>Info</h2>
 			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
 			<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
+		</div>
+		<div id="welcomeMsg">
+			<div class="popover"></div>
+			<button role="button" id="close-welcome" class="icon">
+				<span class="fa fa-times" aria-label="Options"></span>
+			</button>
+			<h3>Welcome to WaveTab!</h3>
+			<p>Click the <span class="fa fa-cog" aria-label="Options icon"></span> to change your settings.</p>
 		</div>
 		<button role="button" id="info-icon" class="icon">
 			<span class="fa fa-cog" aria-label="Options"></span>

@@ -28,7 +28,7 @@ function restoreOptions() {
 		showTime: true,
 		showDate: true,
 		use24HourTime: false
-	}, function(items) {;
+	}, function(items) {
 		// set up switches according to stored options
 		timeOption.checked = items.showTime;
 		dateOption.checked = items.showDate;
