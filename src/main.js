@@ -23,7 +23,7 @@ var colorPairs = [
 	["#ff9a9e", "#fecfef"], // pink
 	["#fbc2eb", "#a6c1ee"], // blue, purple
 	["#8db8ff", "#a1e1ff"], // blue
-	["#bbff6d", "#7de08b"], // green
+	["#bbff6d", "#7de08b"], // green [10]
 	["#43e97b", "#38f9d7"], // green, teal
 	["#5ee7df", "#b490ca"], // blue, purple
 	["#667eea", "#764ba2"], // deep purple
@@ -38,7 +38,7 @@ var colorPairs = [
 	["#7dded1", "#61e2a1"], // muted blue,  muted green
 	["#d47dde", "#f5c070"], // muted purple,  muted orange
 	["#84fab0", "#8fd3f4"], // light green,  light blue (012 tempting azure)
-	["#8a81fe", "#51d7f4"], // light purple,  medium teal - brand color*
+	["#8a81fe", "#51d7f4"], // light purple,  medium teal - brand color**
 	["#A1FFCE", "#ffd1e8"], // https://uigradients.com/#Limeade
 	["#fceabb", "#f8b500"], // https://uigradients.com/#SunontheHorizon
 	["#f85032", "#e73827"], // https://uigradients.com/#BloodRed
@@ -63,12 +63,12 @@ var colorPairs = [
 	["#B993D6", "#8CA6DB"], // https://uigradients.com/#DirtyFog
 	["#00d2ff", "#3a7bd5"], // https://uigradients.com/#Reef
 	["#DE6262", "#FFB88C"], // https://uigradients.com/#ALostMemory
-	["#f857a6", "#ff5858"], // https://uigradients.com/#DayTripper
+	["#f857a6", "#ff5858"], // https://uigradients.com/#DayTripper [50]
 	["#5f2c82", "#49a09d"], // https://uigradients.com/#CalmDarya
 	["#DAE2F8", "#D6A4A4"], // https://uigradients.com/#Moonrise
 	["#24C6DC", "#514A9D"], // https://uigradients.com/#Mantle
 	["#134E5E", "#71B280"], // https://uigradients.com/#Moss
-	["#614385", "#516395"] // https://uigradients.com/#Kashmir
+	["#614385", "#516395"] // https://uigradients.com/#Kashmir [55]
 ];
 
 function updateTime() {
