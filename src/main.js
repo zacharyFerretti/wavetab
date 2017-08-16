@@ -105,7 +105,7 @@ function pickColors() {
 
 	container.style.background = "linear-gradient(45deg, " + colorString + ")";
 	container.style.backgroundSize = "600% 600%";
-	container.style.animation = "Animation 8s ease-in-out infinite";
+	container.style.animation = "Animation 25s ease-in-out infinite";
 }
 
 function hideWelcomeMessage() {

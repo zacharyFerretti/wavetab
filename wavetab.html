@@ -2,50 +2,50 @@
 <html>
 <head>
 	<title>New Tab</title>
-	
+
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<script src="src/moment.min.js"></script>
-	
+
 	<style>
 		/* local version of Quicksand google web font */
 		@font-face {
 			font-family: "Quicksand";
 			src: url("assets/fonts/Quicksand-Light.woff") format('woff');
 		}
-		
+
 		/* base css */
 		html, body {
 			height: 100%;
 			margin: 0;
 		}
-		
+
 		a {
 			color: #ffffff;
 		}
-		
+
 		hr {
 			border-style: solid;
 		}
-		
+
 		/* page background */
 		#container {
 			min-height: 100%;
-			
+
 			background: #ffffff;
 			background-size: 600% 600%;
-			animation: Animation 15s ease-in-out infinite;
-			
+			animation: Animation 25s ease-in-out infinite;
+
 			display: flex;
 			text-align: center;
 			justify-content: center;
 		}
-		
-		@keyframes Animation { 
+
+		@keyframes Animation {
 			0%{background-position:0% 99%}
 			50%{background-position:100% 2%}
 			100%{background-position:0% 99%}
 		}
-		
+
 		/* time & date */
 		#text-display {
 			color: #ffffff;
@@ -53,7 +53,7 @@
 			align-self: center;
 			margin: auto;
 		}
-		
+
 		#time {
 			font-size: 11rem;
 			font-weight: 100;
@@ -62,7 +62,7 @@
 			margin-bottom: 0px;
 			display: none;
 		}
-		
+
 		#date {
 			font-size: 3rem;
 			font-weight: 300;
@@ -71,7 +71,7 @@
 			margin-bottom: 0px;
 			display: none;
 		}
-		
+
 		/* options */
 		#options {
 			font-family: 'Quicksand', sans-serif;
@@ -79,76 +79,76 @@
 			text-shadow: 0px 0px 40px #969696;
 			font-size: 1.3rem;
 			text-align: left;
-			
+
 			display: none;
 			height: 1%;
 			align-self: center;
 			min-width: 50%;
 			position: relative;
-			
+
 			border: 2px solid #ffffff;
 			padding: 20px;
 			border-radius: 10px;
-			
+
 			background: rgba(119, 119, 119, 0.4);
 		}
-		
+
 		#options h1 {
 			margin-top: 1px;
 			margin-bottom: 1px;
 		}
-		
+
 		#options h2 {
 			margin-top: 20px;
 			margin-bottom: 5px;
 			font-size: 1.5rem;
 		}
-		
+
 		#options p {
 			margin-top: 2px;
 			margin-bottom: 2px;
 		}
-		
+
 		.options-list {
 			list-style: none;
 			padding-left: 0px;
 			margin-top: 5px;
 			margin-bottom: 0px;
 		}
-		
+
 		.options-list li {
 			margin-bottom: 10px;
 		}
-		
+
 		/* welcome message */
 		#welcomeMsg {
 			font-family: 'Quicksand', sans-serif;
 			color: #ffffff;
 			font-size: 1rem;
 			text-align: left;
-			
+
 			border: 2px solid #ffffff;
 			padding: 5px;
 			border-radius: 10px;
 			background: rgba(119, 119, 119, 0.4);
-			
+
 			position: absolute;
 			bottom: 10px;
 			right: 60px;
 			display: none;
 		}
-		
+
 		#welcomeMsg h3, p {
 			margin: 2px;
 		}
-		
+
 		#welcomeMsg .icon {
 			font-size: 1.1rem;
 			position: absolute;
 			top: 5px;
 			right: 5px;
 		}
-		
+
 		#welcomeMsg .popover {
 			position: absolute;
 			top: 35px;
@@ -157,7 +157,7 @@
 			border-bottom: 10px solid transparent;
 			border-left: 10px solid #ffffff;
 		}
-		
+
 		/* font awesome icons */
 		.icon {
 			color: #ffffff;
@@ -166,7 +166,7 @@
 			background: none;
 			border: none;
 		}
-		
+
 		#info-icon {
 			opacity: 0.6;
 			transition: .3s;
@@ -174,17 +174,17 @@
 			bottom: 10px;
 			right: 10px;
 		}
-		
+
 		#close-icon {
 			position: absolute;
 			top: 10px;
 			right: 10px;
 		}
-		
+
 		#info-icon:hover {
 			opacity: 1;
 		}
-		
+
 		/* css toggle switch modified from https://www.w3schools.com/howto/howto_css_switch.asp */
 		.switch {
 			position: relative;
@@ -226,15 +226,15 @@
 			transition: .4s;
 			border-radius: 50%;
 		}
-		
+
 		input:checked + .slider {
 			background-color: #dddddd;
 		}
-		
+
 		input:focus + .slider {
 			box-shadow: 0 0 1px #dddddd;
 		}
-		
+
 		input:checked + .slider:before {
 			transform: translateX(28px);
 		}
@@ -253,23 +253,23 @@
 			<h1>Options</h1>
 			<h2>Display</h2>
 			<ul class="options-list">
-				<li><label class="switch"> 
+				<li><label class="switch">
 					<input type="checkbox" checked id="showTime">
 					<div class="slider"></div>
 				</label>Show time</li>
-				<li><label class="switch"> 
+				<li><label class="switch">
 					<input type="checkbox" checked id="showDate">
 					<div class="slider"></div>
 				</label>Show date</li>
-				<li><label class="switch"> 
+				<li><label class="switch">
 					<input type="checkbox" id="use24HourTime">
 					<div class="slider"></div>
 				</label>Use 24 hour time</li>
 			</ul>
-			
+
 			<h2>Support</h2>
 			<p><a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a> | <a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a> | <a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" target="_blank">Leave a review</a></p>
-			
+
 			<h2>Info</h2>
 			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
 			<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
