@@ -74,15 +74,15 @@ var colorPairs = [
 function updateTime() {
 	chrome.storage.sync.get("use24HourTime", function(items) {
 		if (!items.use24HourTime) {
-			timeElem.innerHTML = moment().format("h:mm A");
+			timeElem.textContent = moment().format("h:mm A");
 		} else {
-			timeElem.innerHTML = moment().format("HH:mm");
+			timeElem.textContent = moment().format("HH:mm");
 		}
 	});
 }
 
 function updateDate() {
-	dateElem.innerHTML = moment().format("dddd, MMMM Do, YYYY");
+	dateElem.textContent = moment().format("dddd, MMMM Do, YYYY");
 }
 
 function pickColors() {
