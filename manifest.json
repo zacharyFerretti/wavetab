@@ -24,5 +24,12 @@
 
 	"chrome_url_overrides" : {
 		"newtab": "wavetab.html"
-	}
+	},
+
+	"applications": {
+		"gecko": {
+		  "id": "wavetab@lizgw.github.io",
+		  "strict_min_version": "42.0"
+		}
+	  }
 }
