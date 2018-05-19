@@ -7,7 +7,6 @@
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 
 	"version": "1.0.1",
-	"version_name": "v1.0.1",
 
 	"icons": {
 		"16": "assets/images/appicon-16.png",
@@ -20,15 +19,13 @@
 		"storage"
 	],
 
-	 "offline_enabled": true,
-
 	"chrome_url_overrides" : {
 		"newtab": "wavetab.html"
 	},
 
 	"applications": {
 		"gecko": {
-		  "id": "wavetab@lizgw.github.io",
+		  "id": "wavetab@lizgw",
 		  "strict_min_version": "42.0"
 		}
 	  }
