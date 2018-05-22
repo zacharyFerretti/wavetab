@@ -82,8 +82,7 @@ var colorPairs = [
 ];
 
 function updateTime() {
-	let prefs = browser.storage.local.get("use24HourTime");
-	prefs.then(function(items) {
+	chrome.storage.local.get("use24HourTime", function(items) {
 		if (!items.use24HourTime) {
 			timeElem.textContent = moment().format("h:mm A");
 		} else {
@@ -144,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("close-welcome").onclick = hideWelcomeMessage;
 
 	// add event listener for when storage changes
-	browser.storage.onChanged.addListener(updateDisplay);
+	chrome.storage.onChanged.addListener(updateDisplay);
 
 	restoreOptions();
 
@@ -157,12 +156,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// show welcome message if necessary
 	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
-	browser.storage.local.get({
+	chrome.storage.local.get({
 		showWelcomeMsg: true
 	}, function (items) {
 		if (items.showWelcomeMsg) {
 			document.getElementById("welcomeMsg").style.display = "block";
-			browser.storage.local.set({showWelcomeMsg: false});
+			chrome.storage.local.set({showWelcomeMsg: false});
 		}
 	});
 });

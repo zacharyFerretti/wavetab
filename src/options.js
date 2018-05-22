@@ -19,18 +19,16 @@ function toggleOptions() {
 // save preference in chrome sync data
 function updatePrefs(event) {
 	options[event.target.id] = event.target.checked;
-	browser.storage.local.set(options);
+	chrome.storage.local.set(options);
 }
 
 function restoreOptions() {
 	// Use default values
-	let storageRef = browser.storage.local.get({
+	chrome.storage.local.get({
 		showTime: true,
 		showDate: true,
 		use24HourTime: false
-	});
-
-	storageRef.then(function(items) {
+	}, function(items) {
 		// set up switches according to stored options
 		timeOption.checked = items.showTime;
 		dateOption.checked = items.showDate;
