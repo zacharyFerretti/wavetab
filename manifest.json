@@ -6,7 +6,7 @@
 	"author": "Liz Wigglesworth",
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 
-	"version": "1.0.1",
+	"version": "1.0.0",
 
 	"icons": {
 		"32": "assets/images/appicon-32.png",
