@@ -13,12 +13,32 @@ else if (navigator.userAgent.indexOf("Firefox") != -1 )
 
 var btnContainer = document.getElementById("browser-btns");
 if (browser == "Firefox")
-	btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
-else if (browser == "Chrome")
-	btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
-else
-	btnContainer.style.display = "none";
+{
+	if (btnContainer != null)
+		btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
 
+	var elements = document.getElementsByClassName("chrome");
+	console.log(elements);
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = "none";
+    }
+}
+else if (browser == "Chrome")
+{
+	if (btnContainer != null)
+		btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
+	
+		var elements = document.getElementsByClassName("firefox");
+
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = "none";
+    }
+}
+else
+{
+	btnContainer.style.display = "none";
+}
 
 (function($) {
 
