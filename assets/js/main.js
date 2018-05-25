@@ -11,33 +11,73 @@ if (navigator.userAgent.indexOf("Chrome") != -1 )
 else if (navigator.userAgent.indexOf("Firefox") != -1 ) 
 	browser = "Firefox";
 
-var btnContainer = document.getElementById("browser-btns");
-if (browser == "Firefox")
-{
-	if (btnContainer != null)
-		btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
+updateBrowserDisplay();
 
-	var elements = document.getElementsByClassName("chrome");
-	console.log(elements);
-
-    for (var i = 0; i < elements.length; i++){
-        elements[i].style.display = "none";
-    }
-}
-else if (browser == "Chrome")
+function toggleUserAgent()
 {
-	if (btnContainer != null)
-		btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
+	if (browser == "Chrome")
+		browser = "Firefox";
+	else
+		browser = "Chrome";
 	
-		var elements = document.getElementsByClassName("firefox");
-
-    for (var i = 0; i < elements.length; i++){
-        elements[i].style.display = "none";
-    }
+	// show all elements
+	var elements = document.getElementsByClassName("firefox");
+	for (var i = 0; i < elements.length; i++)
+		elements[i].style.display = "block";
+	elements = document.getElementsByClassName("chrome");
+	for (var i = 0; i < elements.length; i++)
+		elements[i].style.display = "block";
+	
+	updateBrowserDisplay();
 }
-else
+
+function updateBrowserDisplay()
 {
-	btnContainer.style.display = "none";
+	var btnContainer = document.getElementById("browser-btns");
+	if (browser == "Firefox")
+	{
+		// show the right support/review buttons
+		if (btnContainer != null)
+			btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
+
+		// hide chrome-related FAQ entries
+		var elements = document.getElementsByClassName("chrome");
+		for (var i = 0; i < elements.length; i++){
+			elements[i].style.display = "none";
+		}
+
+		// highlight the firefox support tab
+		var ffBtn = document.getElementById("firefox-tab");
+		if (ffBtn != null)
+		{
+			ffBtn.classList.add("active");
+			document.getElementById("chrome-tab").classList.remove("active");
+		}
+	}
+	else if (browser == "Chrome")
+	{
+		// show the right support/review buttons
+		if (btnContainer != null)
+			btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
+		
+		// hide firefox FAQ entries
+		var elements = document.getElementsByClassName("firefox");
+		for (var i = 0; i < elements.length; i++){
+			elements[i].style.display = "none";
+		}
+
+		// highlight the chrome support tab
+		var chromeBtn = document.getElementById("chrome-tab");
+		if (chromeBtn != null)
+		{
+			chromeBtn.classList.add("active");
+			document.getElementById("firefox-tab").classList.remove("active");
+		}
+	}
+	else
+	{
+		btnContainer.style.display = "none";
+	}
 }
 
 (function($) {
