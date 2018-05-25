@@ -4,6 +4,22 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+// detect browser to show the right buttons
+var browser = "default";
+if (navigator.userAgent.indexOf("Chrome") != -1 )
+	browser = "Chrome";
+else if (navigator.userAgent.indexOf("Firefox") != -1 ) 
+	browser = "Firefox";
+
+var btnContainer = document.getElementById("browser-btns");
+if (browser == "Firefox")
+	btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
+else if (browser == "Chrome")
+	btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
+else
+	btnContainer.style.display = "none";
+
+
 (function($) {
 
 	skel.breakpoints({
