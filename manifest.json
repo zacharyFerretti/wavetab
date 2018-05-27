@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
 
-	"name": "WaveTab - Minimal New Tab Page",
+	"name": "WaveTab",
 	"short_name": "WaveTab",
 	"author": "Liz Wigglesworth",
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 
-	"version": "1.0.0",
+	"version": "1.0.1",
 
 	"icons": {
 		"32": "assets/images/appicon-32.png",
@@ -24,7 +24,7 @@
 	"applications": {
 		"gecko": {
 		  "id": "wavetab@lizgw",
-		  "strict_min_version": "42.0"
+		  "strict_min_version": "54.0"
 		}
 	  }
 }
