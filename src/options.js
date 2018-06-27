@@ -1,3 +1,8 @@
+// options groups
+var groupGeneral = document.getElementById("opt-general");
+var groupGradients = document.getElementById("opt-gradients");
+var groupSupport = document.getElementById("opt-support");
+
 // elements
 var timeOption = document.getElementById('showTime');
 var dateOption = document.getElementById('showDate');
@@ -66,4 +71,25 @@ function updateDisplay(changes) {
 				break;
 		}
 	}
+}
+
+// switch between option categories
+// called when a category tab is clicked
+function switchTab(event)
+{
+	// hide all the options divs
+	hideOptionsGroups();
+
+	// will be something like "opt-tab-general", so cut off the beginning to get just "general"
+	var group = event.target.attributes.id.nodeValue.substring(8);
+
+	// show that group of options
+	document.getElementById("opt-" + group).style.display = "block";
+}
+
+function hideOptionsGroups()
+{
+	groupGeneral.style.display = "none";
+	groupGradients.style.display = "none";
+	groupSupport.style.display = "none";
 }

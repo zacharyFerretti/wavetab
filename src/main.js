@@ -137,6 +137,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		checkboxes[i].onchange = updatePrefs;
 	}
 
+	// setup event listeners for radio buttons
+	var radioBtns = document.querySelectorAll("input[type='radio']");
+	for (var i = 0; i < radioBtns.length; i++) {
+		radioBtns[i].onchange = switchTab;
+
+		// set first radio button as checked
+		if (i == 0)
+			radioBtns[i].checked = true;
+		else
+			radioBtns[i].checked = false;
+	}
+
 	// setup event listeners for buttons
 	document.getElementById("info-icon").onclick = toggleOptions;
 	document.getElementById("close-icon").onclick = toggleOptions;
