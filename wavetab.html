@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/options.css">
 	<script src="src/moment.js"></script>
 </head>
 <body>
@@ -19,28 +20,43 @@
 				<span class="fa fa-times" aria-label="Options"></span>
 			</button>
 			<h1>Options</h1>
-			<h2>Display</h2>
-			<ul class="options-list">
-				<li><label class="switch">
-					<input type="checkbox" checked id="showTime">
-					<div class="slider"></div>
-				</label>Show time</li>
-				<li><label class="switch">
-					<input type="checkbox" checked id="showDate">
-					<div class="slider"></div>
-				</label>Show date</li>
-				<li><label class="switch">
-					<input type="checkbox" id="use24HourTime">
-					<div class="slider"></div>
-				</label>Use 24 hour time</li>
-			</ul>
+			<hr>
+			<div class="opt-container">
+				<div class="opt-sidebar">
+					<h2 class="opt-selected">General</h2>
+					<h2>Gradients</h2>
+					<h2>Info & Support</h2>
+				</div>
+				<div class="opt-main">
+					<div id="opt-general">
+						<ul class="options-list">
+							<li><label class="switch">
+								<input type="checkbox" checked id="showTime">
+								<div class="slider"></div>
+							</label>Show time</li>
+							<li><label class="switch">
+								<input type="checkbox" checked id="showDate">
+								<div class="slider"></div>
+							</label>Show date</li>
+							<li><label class="switch">
+								<input type="checkbox" id="use24HourTime">
+								<div class="slider"></div>
+							</label>Use 24 hour time</li>
+						</ul>
+					</div>
+					<div id="opt-gradient">
 
-			<h2>Support</h2>
-			<p><a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a> | <a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a></p>
+					</div>
+					<div id="opt-support">
+						<h2>Support</h2>
+						<p><a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a> | <a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a></p>
 
-			<h2>Info</h2>
-			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
-			<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
+						<h2>Info</h2>
+						<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
+						<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="welcomeMsg">
 			<div class="popover"></div>
