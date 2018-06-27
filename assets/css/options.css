@@ -102,6 +102,7 @@ input:checked + .slider:before {
     color: rgb(240, 240, 240);
 }
 
+/* options panel */
 .opt-container {
     width: 100%;
 }
@@ -122,17 +123,28 @@ input:checked + .slider:before {
     float: left;
 }
 
-.opt-selected {
-    background: #cfcfcf83;
-}
-
 .opt-sidebar h2 {
     margin-top: 5px;
     padding: 3px;
     border-radius: 10px;
 }
 
-.opt-sidebar h2:hover {
-    background: #cfcfcf50;
+input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+input[type="radio"] + label {
+    margin-top: 5px;
+}
+
+input[type="radio"]:hover + label h2 {
+    background: #cfcfcf35;
     cursor: pointer;
+}
+
+input[type="radio"]:checked + label h2 {
+    background: #cfcfcf85;
 }
