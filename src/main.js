@@ -18,7 +18,6 @@ var options = {};
 
 // a bunch of these are from https://webgradients.com/
 var colorPairs = [
-	["#aca9a9", "#171717"], // 0 grey, black
 	["#ff6060", "#ff509a"], // 1 red, pink
 	["#fda085", "#f6d365"], // 2 yellow, orange
 	["#246644", "#7dd04f"], // 3 dark green, light green
@@ -165,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	updateTime();
 	updateDate();
 	pickColors(0);
+
+	readFile();
 
 	// show welcome message if necessary
 	//chrome.storage.sync.clear(); // test line to clear storage & see msg again

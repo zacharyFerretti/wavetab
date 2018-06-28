@@ -1,0 +1,11 @@
+{
+    "default": [
+        {
+            "id": 0,
+            "name": "Grey + Black",
+            "colors": ["#aca9a9", "#171717"],
+            "src": "",
+            "package": "default"
+        }
+    ]
+}
