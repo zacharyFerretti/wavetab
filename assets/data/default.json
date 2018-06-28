@@ -6,6 +6,34 @@
             "colors": ["#aca9a9", "#171717"],
             "src": "",
             "package": "default"
+        },
+        {
+            "id": 1,
+            "name": "Red + Pink",
+            "colors": ["#ff6060", "#ff509a"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 2,
+            "name": "Yellow + Orange",
+            "colors": ["#fda085", "#f6d365"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 3,
+            "name": "Dark Green + Light Green",
+            "colors": ["#246644", "#7dd04f"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 4,
+            "name": "Pink, Purple, Blue",
+            "colors": ["#ff88a7", "#c5aeff", "#aee5ff"],
+            "src": "",
+            "package": "default"
         }
     ]
 }

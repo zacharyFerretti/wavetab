@@ -1,33 +1,19 @@
-var data;
+var gradientData;
 
 function readFile()
 {
-    //var file = FileUtils.File("../data/default.json");
-    /*
-    console.log(path);
-
-    var file = null;
-
-    var reader = new FileReader();
-    reader.readAsText(file);*/
-
+    // get the path of the json file(s)
     var path = chrome.extension.getURL("assets/data/default.json");
 
+    // request and read the file
     var req = new XMLHttpRequest();
     req.addEventListener("load", reqOnLoad)
     req.open("GET", path);
     req.send();
 }
 
-function saveData(e)
-{
-    lines = e.target.result;
-    data = JSON.parse(lines);
-    console.log(data);
-}
-
 function reqOnLoad()
 {
-    data = JSON.parse(this.responseText);
-    console.log(data);
+    gradientData = JSON.parse(this.responseText);
+    pickColors(0);
 }

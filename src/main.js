@@ -18,10 +18,6 @@ var options = {};
 
 // a bunch of these are from https://webgradients.com/
 var colorPairs = [
-	["#ff6060", "#ff509a"], // 1 red, pink
-	["#fda085", "#f6d365"], // 2 yellow, orange
-	["#246644", "#7dd04f"], // 3 dark green, light green
-	["#ff88a7", "#c5aeff", "#aee5ff"], // 4 pink, purple, blue
 	["#a18cd1", "#fbc2eb"], // 5 purple
 	["#ff9a9e", "#fecfef"], // 6 pink
 	["#fbc2eb", "#a6c1ee"], // 7 blue, purple
@@ -94,34 +90,38 @@ function updateDate() {
 	dateElem.textContent = moment().format("dddd, MMMM Do, YYYY");
 }
 
-function pickColors(num) {
-// step through the colors if debugging
-	if (!debug) {
-		// pick a random gradient from the array
-		randNum = Math.floor(Math.random() * colorPairs.length);
-	}
-	else {
-		// use the one that was passed in
-		randNum = num;
-	}
-
-	// build a string from the colors
-	var colorString = "";
-	// for each item (color) in the array...
-	for (var color = 0; color < colorPairs[randNum].length; color++) {
-		// add the color to the string
-		colorString += colorPairs[randNum][color];
-
-		// if this is NOT the last color...
-		if (color != colorPairs[randNum].length - 1) {
-			// add a comma before the next one
-			colorString += ", ";
+function pickColors(num)
+{
+	// make sure it exists already
+	if (gradientData != undefined)
+	{
+		if (!debug) {
+			// pick a random gradient from the array
+			randNum = Math.floor(Math.random() * gradientData.default.length);
 		}
-	}
+		else {
+			// use the one that was passed in
+			randNum = num;
+		}
 
-	container.style.background = "linear-gradient(45deg, " + colorString + ")";
-	container.style.backgroundSize = "600% 600%";
-	container.style.animation = "Animation 25s ease-in-out infinite";
+		var colorString = "";
+		var colorArray = gradientData.default[randNum].colors;
+		// for each item (color) in the array...
+		for (var color = 0; color < colorArray.length; color++) {
+			// add the color to the string
+			colorString += colorArray[color];
+
+			// if this is NOT the last color...
+			if (color != colorArray.length - 1) {
+				// add a comma before the next one
+				colorString += ", ";
+			}
+		}
+
+		container.style.background = "linear-gradient(45deg, " + colorString + ")";
+		container.style.backgroundSize = "600% 600%";
+		container.style.animation = "Animation 25s ease-in-out infinite";
+	}
 }
 
 function hideWelcomeMessage() {
@@ -163,9 +163,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	updateTime();
 	updateDate();
-	pickColors(0);
 
 	readFile();
+
 
 	// show welcome message if necessary
 	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
