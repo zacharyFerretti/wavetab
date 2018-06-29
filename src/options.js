@@ -93,9 +93,6 @@ function switchTab(event)
 
 	// show that group of options
 	document.getElementById("opt-" + group).style.display = "block";
-
-	if (group == "gradient-library")
-		generateGradientLibrary();
 }
 
 function hideOptionsGroups()
@@ -119,10 +116,11 @@ function generateGradientLibrary()
 		gradientElem.style.background = "linear-gradient(45deg, " + colorString + ")";
 
 		// give it a tooltip
-		var tooltip = "Name: " + gradientData.default[i].name +
-					"\nID: " + gradientData.default[i].id +
-					"\n Package: " + gradientData.default[i].package;
-		gradientElem.setAttribute("tooltip", tooltip);
+		var tooltip = document.createElement("span");
+		tooltip.classList.add("tooltip");
+		tooltip.innerText = gradientData.default[i].id + ": " + gradientData.default[i].name +
+					"\n\n[" + gradientData.default[i].package + "]";
+		gradientElem.appendChild(tooltip);
 
 		// add it to the DOM inside the container
 		gradLibContainer.appendChild(gradientElem);
