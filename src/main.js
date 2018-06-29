@@ -43,8 +43,8 @@ function pickColors(num)
 			// use the one that was passed in
 			randNum = num;
 		}
-
-		var colorString = makeColorString(gradientData.default[randNum].colors);
+		var gradientObj = gradientData.default[randNum];
+		var colorString = makeColorString(gradientObj.colors);
 
 		container.style.background = "linear-gradient(45deg, " + colorString + ")";
 		container.style.backgroundSize = "200% 200%";

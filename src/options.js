@@ -114,9 +114,17 @@ function generateGradientLibrary()
 		var gradientElem = document.createElement("div");
 		gradientElem.classList.add("grad-lib-box");
 
+		// have it use the colors in the gradientObj's color array
 		var colorString = makeColorString(gradientData.default[i].colors);
 		gradientElem.style.background = "linear-gradient(45deg, " + colorString + ")";
 
+		// give it a tooltip
+		var tooltip = "Name: " + gradientData.default[i].name +
+					"\nID: " + gradientData.default[i].id +
+					"\n Package: " + gradientData.default[i].package;
+		gradientElem.setAttribute("tooltip", tooltip);
+
+		// add it to the DOM inside the container
 		gradLibContainer.appendChild(gradientElem);
 	}
 }
