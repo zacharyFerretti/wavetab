@@ -1,6 +1,7 @@
 // options groups
 var groupGeneral = document.getElementById("opt-general");
 var groupGradients = document.getElementById("opt-gradients");
+var groupGradientLib = document.getElementById("opt-gradient-library");
 var groupSupport = document.getElementById("opt-support");
 
 // elements
@@ -12,6 +13,8 @@ var use24Time = document.getElementById('use24HourTime');
 var cgNameElem = document.getElementById("cgName");
 var cgPackageElem = document.getElementById("cgPackage");
 var cgIDElem = document.getElementById("cgID");
+
+var gradLibContainer = document.getElementById("grad-lib-container");
 
 // switch between showing the options panel and the time/date
 function toggleOptions() {
@@ -90,11 +93,26 @@ function switchTab(event)
 
 	// show that group of options
 	document.getElementById("opt-" + group).style.display = "block";
+
+	if (group == "gradient-library")
+		generateGradientLibrary();
 }
 
 function hideOptionsGroups()
 {
 	groupGeneral.style.display = "none";
 	groupGradients.style.display = "none";
+	groupGradientLib.style.display = "none";
 	groupSupport.style.display = "none";
+}
+
+function generateGradientLibrary()
+{
+	for (var i = 0; i < gradientData.default.length; i++)
+	{
+		var gradientElem = document.createElement("p");
+		gradientElem.innerText = gradientData.default[i].name;
+
+		gradLibContainer.appendChild(gradientElem);
+	}
 }

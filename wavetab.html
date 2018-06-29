@@ -29,13 +29,16 @@
 	
 						<input type="radio" name="opt-tabs" value="Gradients" id="opt-tab-gradients">
 						<label for="opt-tab-gradients"><h2>Gradients</h2></label>
+
+						<input type="radio" name="opt-tabs" value="Gradient Library" id="opt-tab-gradient-library">
+						<label for="opt-tab-gradient-library"><h2>Gradient Library</h2></label>
 	
 						<input type="radio" name="opt-tabs" value="Support" id="opt-tab-support">
 						<label for="opt-tab-support"><h2>Support & Info</h2></label>
 					</div>
 				</div>
 				<div class="opt-main">
-					<div id="opt-general">
+					<div id="opt-general" class="opt-container">
 						<h3>Display</h3>
 						<ul class="options-list">
 							<li><label class="switch">
@@ -52,13 +55,17 @@
 							</label>Use 24 hour time</li>
 						</ul>
 					</div>
-					<div id="opt-gradients" style="display: none">
+					<div id="opt-gradients" style="display: none" class="opt-container">
 						<h3>Current Gradient Info</h3>
 						<p>Name: <span id="cgName"></span></p>
 						<p>Package: <span id="cgPackage"></span></p>
 						<p>ID: <span id="cgID"></span></p>
 					</div>
-					<div id="opt-support" style="display: none">
+					<div id="opt-gradient-library" style="display: none" class="opt-container">
+						<h3>Default Gradients</h3>
+						<div id="grad-lib-container"></div>
+					</div>
+					<div id="opt-support" style="display: none" class="opt-container">
 						<h3>Support</h3>
 						<p><a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a> | <a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a></p>
 						<br>
