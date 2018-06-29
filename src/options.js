@@ -8,6 +8,11 @@ var timeOption = document.getElementById('showTime');
 var dateOption = document.getElementById('showDate');
 var use24Time = document.getElementById('use24HourTime');
 
+// gradient options
+var cgNameElem = document.getElementById("cgName");
+var cgPackageElem = document.getElementById("cgPackage");
+var cgIDElem = document.getElementById("cgID");
+
 // switch between showing the options panel and the time/date
 function toggleOptions() {
 	if (!showingOptions) {

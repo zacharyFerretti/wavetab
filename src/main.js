@@ -45,7 +45,8 @@ function pickColors(num)
 		}
 
 		var colorString = "";
-		var colorArray = gradientData.default[randNum].colors;
+		var gradientObj = gradientData.default[randNum];
+		var colorArray = gradientObj.colors;
 		// for each item (color) in the array...
 		for (var color = 0; color < colorArray.length; color++) {
 			// add the color to the string
@@ -61,6 +62,11 @@ function pickColors(num)
 		container.style.background = "linear-gradient(45deg, " + colorString + ")";
 		container.style.backgroundSize = "600% 600%";
 		container.style.animation = "Animation 25s ease-in-out infinite";
+
+		// set the options menu info
+		cgNameElem.innerText = gradientObj.name;
+		cgPackageElem.innerText = gradientObj.package;
+		cgIDElem.innerText = gradientObj.id;
 	}
 }
 
