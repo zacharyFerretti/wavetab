@@ -44,23 +44,10 @@ function pickColors(num)
 			randNum = num;
 		}
 
-		var colorString = "";
-		var gradientObj = gradientData.default[randNum];
-		var colorArray = gradientObj.colors;
-		// for each item (color) in the array...
-		for (var color = 0; color < colorArray.length; color++) {
-			// add the color to the string
-			colorString += colorArray[color];
-
-			// if this is NOT the last color...
-			if (color != colorArray.length - 1) {
-				// add a comma before the next one
-				colorString += ", ";
-			}
-		}
+		var colorString = makeColorString(gradientData.default[randNum].colors);
 
 		container.style.background = "linear-gradient(45deg, " + colorString + ")";
-		container.style.backgroundSize = "600% 600%";
+		container.style.backgroundSize = "200% 200%";
 		container.style.animation = "Animation 25s ease-in-out infinite";
 
 		// set the options menu info
@@ -68,6 +55,25 @@ function pickColors(num)
 		cgPackageElem.innerText = gradientObj.package;
 		cgIDElem.innerText = gradientObj.id;
 	}
+}
+
+function makeColorString(colorArray)
+{
+	var colorString = "";
+
+	// for each item (color) in the array...
+	for (var color = 0; color < colorArray.length; color++) {
+		// add the color to the string
+		colorString += colorArray[color];
+
+		// if this is NOT the last color...
+		if (color != colorArray.length - 1) {
+			// add a comma before the next one
+			colorString += ", ";
+		}
+	}
+
+	return colorString;
 }
 
 function hideWelcomeMessage() {

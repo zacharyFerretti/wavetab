@@ -110,8 +110,12 @@ function generateGradientLibrary()
 {
 	for (var i = 0; i < gradientData.default.length; i++)
 	{
-		var gradientElem = document.createElement("p");
-		gradientElem.innerText = gradientData.default[i].name;
+		// create a display element for the gradient
+		var gradientElem = document.createElement("div");
+		gradientElem.classList.add("grad-lib-box");
+
+		var colorString = makeColorString(gradientData.default[i].colors);
+		gradientElem.style.background = "linear-gradient(45deg, " + colorString + ")";
 
 		gradLibContainer.appendChild(gradientElem);
 	}
