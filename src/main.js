@@ -91,13 +91,18 @@ document.addEventListener("DOMContentLoaded", function() {
 	// setup event listeners for radio buttons
 	var radioBtns = document.querySelectorAll("input[type='radio']");
 	for (var i = 0; i < radioBtns.length; i++) {
-		radioBtns[i].onchange = switchTab;
 
-		// set first radio button as checked
-		if (i == 0)
-			radioBtns[i].checked = true;
-		else
-			radioBtns[i].checked = false;
+		// only add the event listener if it's a sidebar radio
+		if (radioBtns[i].classList.contains("sidebar-radio"))
+		{
+			radioBtns[i].onchange = switchTab;
+
+			// set first radio button as checked
+			if (i == 0)
+				radioBtns[i].checked = true;
+			else
+				radioBtns[i].checked = false;
+		}
 	}
 
 	// setup event listeners for buttons

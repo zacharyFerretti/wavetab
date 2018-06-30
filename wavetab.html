@@ -24,16 +24,16 @@
 			<div class="opt-container">
 				<div class="opt-sidebar">
 					<div class="opt-tabs">
-						<input type="radio" name="opt-tabs" value="General" id="opt-tab-general" checked>
+						<input type="radio" name="opt-tabs" value="General" id="opt-tab-general" checked class="sidebar-radio">
 						<label for="opt-tab-general"><h2>General</h2></label>
 	
-						<input type="radio" name="opt-tabs" value="Gradients" id="opt-tab-gradients">
+						<input type="radio" name="opt-tabs" value="Gradients" id="opt-tab-gradients" class="sidebar-radio">
 						<label for="opt-tab-gradients"><h2>Gradients</h2></label>
 
-						<input type="radio" name="opt-tabs" value="Gradient Library" id="opt-tab-gradient-library">
+						<input type="radio" name="opt-tabs" value="Gradient Library" id="opt-tab-gradient-library" class="sidebar-radio">
 						<label for="opt-tab-gradient-library"><h2>Gradient Library</h2></label>
 	
-						<input type="radio" name="opt-tabs" value="Support" id="opt-tab-support">
+						<input type="radio" name="opt-tabs" value="Support" id="opt-tab-support" class="sidebar-radio">
 						<label for="opt-tab-support"><h2>Support & Info</h2></label>
 					</div>
 				</div>
@@ -60,6 +60,16 @@
 						<p>Name: <span id="cgName"></span></p>
 						<p>Package: <span id="cgPackage"></span></p>
 						<p>ID: <span id="cgID"></span></p>
+						<br>
+						<h3>Gradient Selection</h3>
+						<div class="radio-container">
+							<input type="radio" name="grad-select" value="random" id="opt-grad-random">
+							<label for="opt-grad-random">Random Selection</label>
+						</div>
+						<div class="radio-container">
+							<input type="radio" name="grad-select" value="select" id="opt-grad-select">
+							<label for="opt-grad-select">Select Manually</label>
+						</div>
 					</div>
 					<div id="opt-gradient-library" style="display: none" class="opt-container">
 						<h3>Default Gradients</h3>
