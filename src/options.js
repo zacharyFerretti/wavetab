@@ -9,6 +9,9 @@ var timeOption = document.getElementById('showTime');
 var dateOption = document.getElementById('showDate');
 var use24Time = document.getElementById('use24HourTime');
 
+var selectRandomOption = document.getElementById("opt-grad-random");
+var selectManualOption = document.getElementById("opt-grad-select");
+
 // gradient options
 var cgNameElem = document.getElementById("cgName");
 var cgPackageElem = document.getElementById("cgPackage");
@@ -35,17 +38,38 @@ function updatePrefs(event) {
 	chrome.storage.local.set(options);
 }
 
+// called when one of the gradien selection radios is pressed
+function changeSelectionMode(event)
+{
+	// change it to either "random" or "select"
+	options["selectMode"] = event.target.id.substring(9);
+	chrome.storage.local.set(options);
+}
+
 function restoreOptions() {
 	// Use default values
 	chrome.storage.local.get({
 		showTime: true,
 		showDate: true,
-		use24HourTime: false
+		use24HourTime: false,
+		selectMode: "random",
+		currentGradient: 0
 	}, function(items) {
 		// set up switches according to stored options
 		timeOption.checked = items.showTime;
 		dateOption.checked = items.showDate;
 		use24Time.checked = items.use24HourTime;
+
+		if (items.selectMode == "random")
+		{
+			selectRandomOption.checked = true;
+			selectManualOption.checked = false;
+		}
+		else
+		{
+			selectManualOption.checked = true;
+			selectRandomOption.checked = false;
+		}
 		
 		// if settings say elements don't display, then hide them
 		if (items.showTime) {
@@ -89,7 +113,7 @@ function switchTab(event)
 	hideOptionsGroups();
 
 	// will be something like "opt-tab-general", so cut off the beginning to get just "general"
-	var group = event.target.attributes.id.nodeValue.substring(8);
+	var group = event.target.id.substring(8);
 
 	// show that group of options
 	document.getElementById("opt-" + group).style.display = "block";
@@ -101,57 +125,4 @@ function hideOptionsGroups()
 	groupGradients.style.display = "none";
 	groupGradientLib.style.display = "none";
 	groupSupport.style.display = "none";
-}
-
-function generateGradientLibrary()
-{
-	for (var i = 0; i < gradientData.default.length; i++)
-	{
-		// create a display element for the gradient
-		var gradientElem = document.createElement("div");
-		gradientElem.classList.add("grad-lib-box");
-
-		// have it use the colors in the gradientObj's color array
-		var colorString = makeColorString(gradientData.default[i].colors);
-		gradientElem.style.background = "linear-gradient(45deg, " + colorString + ")";
-
-		// give it a tooltip
-		var tooltip = document.createElement("span");
-		tooltip.classList.add("tooltip");
-
-		var idString = makeIDString(gradientData.default[i].id)
-
-		tooltip.innerText = idString + ": " + gradientData.default[i].name +
-					"\n\n[" + gradientData.default[i].package + "]";
-		gradientElem.appendChild(tooltip);
-
-		// give it an action to carry out on click
-		gradientElem.onclick = onGradientClick;
-
-		// add it to the DOM inside the container
-		gradLibContainer.appendChild(gradientElem);
-	}
-}
-
-function onGradientClick(event)
-{
-	// get the ID of the gradient clicked
-	var id = parseInt(event.target.innerText.substring(0, 3));
-	pickColors(id);
-}
-
-function makeIDString(id)
-{
-	var idString = "";
-
-	// add leading zeroes if needed
-	if (id < 100)
-		idString += "0";
-
-	if (id < 10)
-		idString += "0";
-
-	idString += id;
-
-	return idString;
 }

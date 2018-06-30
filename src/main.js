@@ -54,6 +54,8 @@ function pickColors(num)
 		cgNameElem.innerText = gradientObj.name;
 		cgPackageElem.innerText = gradientObj.package;
 		cgIDElem.innerText = gradientObj.id;
+
+		chrome.storage.local.set({currentGradient: gradientObj.id});
 	}
 }
 
@@ -91,8 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// setup event listeners for radio buttons
 	var radioBtns = document.querySelectorAll("input[type='radio']");
 	for (var i = 0; i < radioBtns.length; i++) {
-
-		// only add the event listener if it's a sidebar radio
+		// add the right event based on the type of radio
 		if (radioBtns[i].classList.contains("sidebar-radio"))
 		{
 			radioBtns[i].onchange = switchTab;
@@ -102,6 +103,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				radioBtns[i].checked = true;
 			else
 				radioBtns[i].checked = false;
+		}
+		else if (radioBtns[i].classList.contains("grad-selection-radio")){
+			radioBtns[i].onclick = changeSelectionMode;
 		}
 	}
 
@@ -122,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	updateDate();
 
 	readFile();
-
 
 	// show welcome message if necessary
 	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
