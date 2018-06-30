@@ -10,9 +10,6 @@ var showingOptions = false;
 var showWelcomeMsg = true;
 var debug = false;
 
-// colors
-var randNum = 0;
-
 // storage object for options
 var options = {};
 
@@ -32,10 +29,12 @@ function updateDate() {
 
 function pickColors(num)
 {
+	var randNum = 0;
+
 	// make sure it exists already
 	if (gradientData != undefined)
 	{
-		if (!debug) {
+		if (num == undefined) {
 			// pick a random gradient from the array
 			randNum = Math.floor(Math.random() * gradientData.default.length);
 		}
@@ -43,6 +42,7 @@ function pickColors(num)
 			// use the one that was passed in
 			randNum = num;
 		}
+
 		var gradientObj = gradientData.default[randNum];
 		var colorString = makeColorString(gradientObj.colors);
 

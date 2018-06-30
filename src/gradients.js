@@ -15,6 +15,6 @@ function readFile()
 function reqOnLoad()
 {
     gradientData = JSON.parse(this.responseText);
-    pickColors(0);
+    pickColors();
     generateGradientLibrary();
 }

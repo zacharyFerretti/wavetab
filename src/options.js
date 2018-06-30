@@ -118,11 +118,40 @@ function generateGradientLibrary()
 		// give it a tooltip
 		var tooltip = document.createElement("span");
 		tooltip.classList.add("tooltip");
-		tooltip.innerText = gradientData.default[i].id + ": " + gradientData.default[i].name +
+
+		var idString = makeIDString(gradientData.default[i].id)
+
+		tooltip.innerText = idString + ": " + gradientData.default[i].name +
 					"\n\n[" + gradientData.default[i].package + "]";
 		gradientElem.appendChild(tooltip);
+
+		// give it an action to carry out on click
+		gradientElem.onclick = onGradientClick;
 
 		// add it to the DOM inside the container
 		gradLibContainer.appendChild(gradientElem);
 	}
+}
+
+function onGradientClick(event)
+{
+	// get the ID of the gradient clicked
+	var id = parseInt(event.target.innerText.substring(0, 3));
+	pickColors(id);
+}
+
+function makeIDString(id)
+{
+	var idString = "";
+
+	// add leading zeroes if needed
+	if (id < 100)
+		idString += "0";
+
+	if (id < 10)
+		idString += "0";
+
+	idString += id;
+
+	return idString;
 }
