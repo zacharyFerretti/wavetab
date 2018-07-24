@@ -4,4 +4,4 @@ WaveTab turns each new tab page into a gorgeous, animated gradient! Built with s
 
 For more info, visit the [WaveTab website](https://lizgw.github.io/wavetab/).
 
-(Firefox version coming soon!)
+WaveTab v2 is in active development and is coming soon!
