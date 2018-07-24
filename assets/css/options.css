@@ -245,3 +245,28 @@ input:checked + .slider:before {
 .tooltip:hover {
     cursor: pointer;
 }
+
+.range-slider {
+    -webkit-appearance: none;
+    display: inline-block;
+    position: static;
+    background: none;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.range-slider::-moz-range-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: #ffffff;
+    cursor: pointer;
+    border: 2px solid #8a81fe;
+    border-radius: 100%;
+}
+
+.range-slider::-moz-range-track
+{
+    background: #ffffff;
+}
