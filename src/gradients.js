@@ -47,8 +47,7 @@ function generateGradientLibrary()
 
 		var idString = makeIDString(gradientData.default[i].id)
 
-		tooltip.innerText = idString + ": " + gradientData.default[i].name +
-					"\n\n[" + gradientData.default[i].package + "]";
+		tooltip.innerText = idString + ": " + gradientData.default[i].name;
 		gradientElem.appendChild(tooltip);
 
 		// give it an action to carry out on click
