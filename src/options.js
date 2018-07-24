@@ -46,6 +46,12 @@ function changeSelectionMode(event)
 	chrome.storage.local.set(options);
 }
 
+// called when the slider for gradient speed is dragged
+function changeGradientSpeed(event)
+{
+	document.getElementById("opt-speed-label").innerText = this.value + " seconds";
+}
+
 function restoreOptions() {
 	// Use default values
 	chrome.storage.local.get({

@@ -114,6 +114,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("close-icon").onclick = toggleOptions;
 	document.getElementById("close-welcome").onclick = hideWelcomeMessage;
 
+	// setup event listener for range slider
+	document.getElementById("opt-speed").oninput = changeGradientSpeed;
+
 	// add event listener for when storage changes
 	chrome.storage.onChanged.addListener(updateDisplay);
 
