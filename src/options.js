@@ -49,8 +49,12 @@ function changeSelectionMode(event)
 // called when the slider for gradient speed is dragged
 function changeGradientSpeed(event)
 {
-	options["gradientSpeed"] = this.value;
+	// update the label
 	document.getElementById("opt-speed-label").innerText = this.value + " seconds";
+
+	// save it to the options obj
+	options["gradientSpeed"] = this.value;
+	chrome.storage.local.set(options);
 }
 
 function restoreOptions() {
@@ -61,7 +65,7 @@ function restoreOptions() {
 		use24HourTime: false,
 		selectMode: "random",
 		currentGradient: 0,
-		gradientSpeed: 5
+		gradientSpeed: 25
 	}, function(items) {
 		// set up switches according to stored options
 		timeOption.checked = items.showTime;
@@ -79,9 +83,9 @@ function restoreOptions() {
 			selectRandomOption.checked = false;
 		}
 
-		// set the slider position to the current value
-		document.getElementById("opt-slider").value = items.gradientSpeed;
-		document.getElementById("opt-slider-label").innerText = items.gradientSpeed + " seconds";
+		// set the slider position to the current value		
+		document.getElementById("opt-speed").value = items.gradientSpeed;
+		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 		
 		// if settings say elements don't display, then hide them
 		if (items.showTime) {
