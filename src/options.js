@@ -49,6 +49,7 @@ function changeSelectionMode(event)
 // called when the slider for gradient speed is dragged
 function changeGradientSpeed(event)
 {
+	options["gradientSpeed"] = this.value;
 	document.getElementById("opt-speed-label").innerText = this.value + " seconds";
 }
 
@@ -59,7 +60,8 @@ function restoreOptions() {
 		showDate: true,
 		use24HourTime: false,
 		selectMode: "random",
-		currentGradient: 0
+		currentGradient: 0,
+		gradientSpeed: 5
 	}, function(items) {
 		// set up switches according to stored options
 		timeOption.checked = items.showTime;
@@ -76,6 +78,10 @@ function restoreOptions() {
 			selectManualOption.checked = true;
 			selectRandomOption.checked = false;
 		}
+
+		// set the slider position to the current value
+		document.getElementById("opt-slider").value = items.gradientSpeed;
+		document.getElementById("opt-slider-label").innerText = items.gradientSpeed + " seconds";
 		
 		// if settings say elements don't display, then hide them
 		if (items.showTime) {
