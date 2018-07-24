@@ -21,13 +21,6 @@
 		"newtab": "wavetab.html"
 	},
 
-	"applications": {
-		"gecko": {
-		  "id": "wavetab@lizgw",
-		  "strict_min_version": "54.0"
-		}
-	},
-
 	"web_accessible_resources": [
 		"assets/data/default.json"
 	]
