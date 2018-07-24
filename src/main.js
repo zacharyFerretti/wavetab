@@ -46,9 +46,14 @@ function pickColors(num)
 		var gradientObj = gradientData.default[randNum];
 		var colorString = makeColorString(gradientObj.colors);
 
-		container.style.background = "linear-gradient(45deg, " + colorString + ")";
-		container.style.backgroundSize = "200% 200%";
-		container.style.animation = "Animation 25s ease-in-out infinite";
+		// get gradient speed and set it
+		chrome.storage.local.get({
+			gradientSpeed: 25
+		}, function(items) {
+			container.style.background = "linear-gradient(45deg, " + colorString + ")";
+			container.style.backgroundSize = "200% 200%";
+			container.style.animation = "Animation " + items.gradientSpeed + "s ease-in-out infinite";
+		});
 
 		// set the options menu info
 		cgNameElem.innerText = gradientObj.name;
