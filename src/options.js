@@ -55,6 +55,10 @@ function changeGradientSpeed(event)
 	// save it to the options obj
 	options["gradientSpeed"] = this.value;
 	chrome.storage.local.set(options);
+
+	// update the speed
+	container.style.animation = "Animation " + this.value + "s ease-in-out infinite";
+
 }
 
 function restoreOptions() {
