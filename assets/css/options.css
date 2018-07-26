@@ -270,3 +270,22 @@ input:checked + .slider:before {
 {
     background: #ffffff;
 }
+
+button {
+    border-radius: 5px;
+    border: 2px solid #8a81fe;
+    padding: 10px;
+    color: #8a81fe;
+    background: #dddddd;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+button:hover {
+    border: 2px solid #51d7f4;
+}
+
+button:active {
+    border: 2px solid #1888a1;
+}
