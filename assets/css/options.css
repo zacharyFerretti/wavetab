@@ -271,7 +271,8 @@ input:checked + .slider:before {
     background: #ffffff;
 }
 
-button {
+/* reset button */
+#opt-reset {
     border-radius: 5px;
     border: 2px solid #8a81fe;
     padding: 10px;
@@ -282,10 +283,10 @@ button {
     font-weight: bold;
 }
 
-button:hover {
+#opt-reset:hover {
     border: 2px solid #51d7f4;
 }
 
-button:active {
+#opt-reset:active {
     border: 2px solid #1888a1;
 }
