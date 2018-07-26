@@ -101,6 +101,15 @@ function restoreOptions() {
 	});
 }
 
+function resetOptions()
+{
+	var userIsSure = confirm("This will reset all of of WaveTab's settings to their defaults. Do you want to continue?");
+	if (userIsSure)
+	{
+		alert("options reset");
+	}
+}
+
 function updateDisplay(changes) {
 	for (key in changes) {
 		var storageChange = changes[key];
