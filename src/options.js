@@ -106,10 +106,22 @@ function resetOptions()
 	var userIsSure = confirm("This will reset all of of WaveTab's settings to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
-		alert("options reset");
+		options.showTime = true;
+		options.showDate = true;
+		options.use24HourTime = false;
+		options.selectMode = "random";
+		options.currentGradient = 0;
+		options.gradientSpeed = 25;
+
+		// set the storage
+		chrome.storage.local.set(options);
+
+		// refresh the page so the options are applied
+		document.location.reload();
 	}
 }
 
+// called when storage changes
 function updateDisplay(changes) {
 	for (key in changes) {
 		var storageChange = changes[key];
