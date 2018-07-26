@@ -7,7 +7,6 @@ var optionsElem = document.getElementById("options");
 
 // flags
 var showingOptions = false;
-var showWelcomeMsg = true;
 var debug = false;
 
 // storage object for options
@@ -83,8 +82,9 @@ function makeColorString(colorArray)
 	return colorString;
 }
 
-function hideWelcomeMessage() {
+function hideMessage() {
 	document.getElementById("welcomeMsg").style.display = "none";
+	document.getElementById("v2Msg").style.display = "none";
 }
 
 // when the page loads, do all this stuff
@@ -117,7 +117,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	// setup event listeners for buttons
 	document.getElementById("info-icon").onclick = toggleOptions;
 	document.getElementById("close-icon").onclick = toggleOptions;
-	document.getElementById("close-welcome").onclick = hideWelcomeMessage;
+	document.getElementById("close-msg1").onclick = hideMessage;
+	document.getElementById("close-msg2").onclick = hideMessage;
 	document.getElementById("opt-reset").onclick = resetOptions;
 
 	// setup event listener for range slider
@@ -137,13 +138,35 @@ document.addEventListener("DOMContentLoaded", function() {
 	readFile();
 
 	// show welcome message if necessary
-	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
+	//chrome.storage.local.clear(); // test line to clear storage & see msg again
 	chrome.storage.local.get({
-		showWelcomeMsg: true
+		showWelcomeMsg: true,
+		showV2Msg: true
 	}, function (items) {
+		// if the user is new to the extension
 		if (items.showWelcomeMsg) {
+			// show the welcome message
 			document.getElementById("welcomeMsg").style.display = "block";
-			chrome.storage.local.set({showWelcomeMsg: false});
+
+			// don't show the welcome or v2 message again
+			chrome.storage.local.set({showWelcomeMsg: false, showV2Msg: false});
+		}
+		// if the user updated to v2
+		else if (items.showV2Msg)
+		{
+			// show the v2 message
+			document.getElementById("v2Msg").style.display = "block";
+
+			// don't show the v2 message again
+			chrome.storage.local.set({showV2Msg: false});
 		}
 	});
 });
+
+// quick debug to show a message again
+function enableMessage(msgName)
+{
+	options["show" + msgName] = true;
+
+	chrome.storage.local.set(options);
+}
