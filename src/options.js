@@ -103,7 +103,7 @@ function restoreOptions() {
 
 function resetOptions()
 {
-	var userIsSure = confirm("This will reset all of of WaveTab's settings to their defaults. Do you want to continue?");
+	var userIsSure = confirm("This will reset all of WaveTab's settings to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
 		options.showTime = true;
