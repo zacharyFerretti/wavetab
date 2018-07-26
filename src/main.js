@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("info-icon").onclick = toggleOptions;
 	document.getElementById("close-icon").onclick = toggleOptions;
 	document.getElementById("close-welcome").onclick = hideWelcomeMessage;
+	document.getElementById("opt-reset").onclick = resetOptions;
 
 	// setup event listener for range slider
 	document.getElementById("opt-speed").oninput = changeGradientSpeed;
