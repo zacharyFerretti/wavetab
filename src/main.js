@@ -84,7 +84,7 @@ function makeColorString(colorArray)
 
 function hideMessage() {
 	document.getElementById("welcomeMsg").style.display = "none";
-	document.getElementById("v2Msg").style.display = "none";
+	document.getElementById("updateMsg").style.display = "none";
 }
 
 // when the page loads, do all this stuff
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		else if (items.showV2Msg)
 		{
 			// show the v2 message
-			document.getElementById("v2Msg").style.display = "block";
+			document.getElementById("updateMsg").style.display = "block";
 
 			// don't show the v2 message again
 			chrome.storage.local.set({showV2Msg: false});
