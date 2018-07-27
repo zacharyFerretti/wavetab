@@ -67,8 +67,8 @@ hr {
     display: none;
 }
 
-/* welcome message */
-#welcomeMsg {
+/* welcome messages */
+.pop-message {
     font-family: 'Quicksand', sans-serif;
     color: #ffffff;
     font-size: 1rem;
@@ -85,18 +85,18 @@ hr {
     display: none;
 }
 
-#welcomeMsg h3, p {
+.pop-message h3, p {
     margin: 2px;
 }
 
-#welcomeMsg .icon {
+.pop-message .icon {
     font-size: 1.1rem;
     position: absolute;
     top: 5px;
     right: 5px;
 }
 
-#welcomeMsg .popover {
+.pop-message .popover {
     position: absolute;
     top: 35px;
     right: -10px;
