@@ -11,6 +11,7 @@ var debug = false;
 
 // storage object for options
 var options = {};
+var dateString = ""; // default string
 
 function updateTime() {
 	chrome.storage.local.get("use24HourTime", function(items) {
@@ -23,7 +24,59 @@ function updateTime() {
 }
 
 function updateDate() {
-	dateElem.textContent = moment().format("dddd, MMMM Do, YYYY");
+	if (dateString != "")
+	{
+		// format the text according to the date string
+		dateElem.textContent = moment().format(dateString);
+	}
+}
+
+function formatDateString()
+{
+	chrome.storage.local.get({
+		showDayOfWeek: true,
+		showDayOfMonth: true,
+		showYear: true
+	}, function (items) {
+		var datePieces = [];
+		var pos = 0;
+
+		// add pieces that will be in the string based on options
+
+		if (items.showDayOfWeek)
+		{
+			datePieces[pos] = "dddd";
+			pos++;
+		}
+
+		if (items.showDayOfMonth)
+		{
+			datePieces[pos] = "MMMM Do";
+			pos++;
+		}
+
+		if (items.showYear)
+		{
+			datePieces[pos] = "YYYY";
+			pos++;
+		}
+
+		// reset the datestring format
+		dateString = "";
+
+		// build the date string
+		for (var i = 0; i < datePieces.length; i++)
+		{
+			// add the next part of the date string
+			dateString += datePieces[i];
+
+			// add a comma separator if there's another piece
+			if (i != datePieces.length - 1)
+			{
+				dateString += ", ";
+			}
+		}
+	});
 }
 
 function pickColors(num)

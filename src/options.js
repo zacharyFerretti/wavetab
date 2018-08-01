@@ -4,11 +4,6 @@ var groupGradients = document.getElementById("opt-gradients");
 var groupGradientLib = document.getElementById("opt-gradient-library");
 var groupSupport = document.getElementById("opt-support");
 
-// elements
-var timeOption = document.getElementById('showTime');
-var dateOption = document.getElementById('showDate');
-var use24Time = document.getElementById('use24HourTime');
-
 var selectRandomOption = document.getElementById("opt-grad-random");
 var selectManualOption = document.getElementById("opt-grad-select");
 
@@ -32,10 +27,20 @@ function toggleOptions() {
 	}
 }
 
-// save preference in chrome sync data
+// save preference when a slider changes
 function updatePrefs(event) {
 	options[event.target.id] = event.target.checked;
 	chrome.storage.local.set(options);
+
+	// refresh the date if needed
+	var id = event.target.id;
+	if (id == "showDayOfWeek" || id == "showDayOfMonth" || id == "showYear")
+	{
+		formatDateString();
+		updateDate();
+	}
+
+	console.log(event);
 }
 
 // called when one of the gradien selection radios is pressed
@@ -69,12 +74,20 @@ function restoreOptions() {
 		use24HourTime: false,
 		selectMode: "random",
 		currentGradient: 0,
-		gradientSpeed: 25
+		gradientSpeed: 25,
+		showDayOfWeek: true,
+		showDayOfMonth: true,
+		showYear: true
 	}, function(items) {
 		// set up switches according to stored options
-		timeOption.checked = items.showTime;
-		dateOption.checked = items.showDate;
-		use24Time.checked = items.use24HourTime;
+		document.getElementById('showTime').checked = items.showTime;
+		document.getElementById('showDate').checked = items.showDate;
+		document.getElementById('use24HourTime').checked = items.use24HourTime;
+		document.getElementById("showDayOfWeek").checked = items.showDayOfWeek;
+		document.getElementById("showDayOfMonth").checked = items.showDayOfMonth;
+		document.getElementById("showYear").checked = items.showYear;
+
+		formatDateString();
 
 		if (items.selectMode == "random")
 		{
