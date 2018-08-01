@@ -24,6 +24,7 @@ function updateTime() {
 }
 
 function updateDate() {
+	// don't bother if the date string hasn't been generated yet
 	if (dateString != "")
 	{
 		// format the text according to the date string
@@ -142,6 +143,27 @@ function hideMessage() {
 
 // when the page loads, do all this stuff
 document.addEventListener("DOMContentLoaded", function() {
+	// load options from storage
+	restoreOptions();
+
+	// setup time and date
+	updateTime();
+	updateDate();
+	setInterval(updateTime, 999);
+	setInterval(updateDate, 1500);
+
+	// load gradient data file
+	readFile();
+
+	// setup event listeners for buttons & options
+	setupEventListeners();
+
+	// show any new messages to the user
+	showWelcomeMessage();
+});
+
+function setupEventListeners()
+{
 	// set up event listeners for checkboxes
 	var checkboxes = document.querySelectorAll("input[type='checkbox']");
 	for (var i = 0; i < checkboxes.length; i++) {
@@ -179,17 +201,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// add event listener for when storage changes
 	chrome.storage.onChanged.addListener(updateDisplay);
+}
 
-	restoreOptions();
+// quick debug to show a message again
+function enableMessage(msgName)
+{
+	options["show" + msgName] = true;
 
-	setInterval(updateTime, 999);
-	setInterval(updateDate, 1500);
+	chrome.storage.local.set(options);
+}
 
-	updateTime();
-	updateDate();
-
-	readFile();
-
+function showWelcomeMessage()
+{
 	// show welcome message if necessary
 	//chrome.storage.local.clear(); // test line to clear storage & see msg again
 	chrome.storage.local.get({
@@ -214,12 +237,4 @@ document.addEventListener("DOMContentLoaded", function() {
 			chrome.storage.local.set({showV2Msg: false});
 		}
 	});
-});
-
-// quick debug to show a message again
-function enableMessage(msgName)
-{
-	options["show" + msgName] = true;
-
-	chrome.storage.local.set(options);
 }
