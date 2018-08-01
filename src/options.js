@@ -79,6 +79,8 @@ function restoreOptions() {
 		showDayOfMonth: true,
 		showYear: true
 	}, function(items) {
+		formatDateString();
+
 		// set up switches according to stored options
 		document.getElementById('showTime').checked = items.showTime;
 		document.getElementById('showDate').checked = items.showDate;
@@ -87,7 +89,8 @@ function restoreOptions() {
 		document.getElementById("showDayOfMonth").checked = items.showDayOfMonth;
 		document.getElementById("showYear").checked = items.showYear;
 
-		formatDateString();
+		// set the slider position to the current value		
+		document.getElementById("opt-speed").value = items.gradientSpeed;
 
 		if (items.selectMode == "random")
 		{
@@ -99,10 +102,6 @@ function restoreOptions() {
 			selectManualOption.checked = true;
 			selectRandomOption.checked = false;
 		}
-
-		// set the slider position to the current value		
-		document.getElementById("opt-speed").value = items.gradientSpeed;
-		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 		
 		// if settings say elements don't display, then hide them
 		if (items.showTime) {
@@ -119,12 +118,19 @@ function resetOptions()
 	var userIsSure = confirm("This will reset all of WaveTab's settings to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
+		// reset and clear options/storage
+		options = {};
+		chrome.storage.local.clear();
+
 		options.showTime = true;
 		options.showDate = true;
 		options.use24HourTime = false;
 		options.selectMode = "random";
 		options.currentGradient = 0;
 		options.gradientSpeed = 25;
+		options.showDayOfWeek = true,
+		options.showDayOfMonth = true,
+		options.showYear = true
 
 		// set the storage
 		chrome.storage.local.set(options);
