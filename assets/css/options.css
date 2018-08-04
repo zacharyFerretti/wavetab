@@ -116,6 +116,8 @@ input:checked + .slider:before {
 .opt-container {
     width: 100%;
     min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .opt-sidebar {
@@ -125,7 +127,7 @@ input:checked + .slider:before {
 }
 
 .opt-main {
-    width: 70%;
+    width: 74%;
     padding-left: 10px;
     margin-top: 10px;
 }
@@ -205,13 +207,6 @@ input:checked + .slider:before {
 }
 
 /* gradient library */
-#grad-lib-container {
-    height: 350px;
-    width: 100%;
-    overflow-y: scroll;
-    padding: 10px;
-}
-
 .grad-lib-box {
     height: 100px;
     width: 100px;
