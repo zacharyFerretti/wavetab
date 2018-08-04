@@ -91,6 +91,7 @@ function restoreOptions() {
 
 		// set the slider position to the current value		
 		document.getElementById("opt-speed").value = items.gradientSpeed;
+		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 
 		if (items.selectMode == "random")
 		{
