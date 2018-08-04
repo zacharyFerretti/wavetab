@@ -127,7 +127,7 @@ input:checked + .slider:before {
 }
 
 .opt-main {
-    width: 70%;
+    width: 74%;
     padding-left: 10px;
     margin-top: 10px;
 }
