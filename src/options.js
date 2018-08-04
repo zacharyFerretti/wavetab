@@ -4,11 +4,6 @@ var groupGradients = document.getElementById("opt-gradients");
 var groupGradientLib = document.getElementById("opt-gradient-library");
 var groupSupport = document.getElementById("opt-support");
 
-// elements
-var timeOption = document.getElementById('showTime');
-var dateOption = document.getElementById('showDate');
-var use24Time = document.getElementById('use24HourTime');
-
 var selectRandomOption = document.getElementById("opt-grad-random");
 var selectManualOption = document.getElementById("opt-grad-select");
 
@@ -32,10 +27,20 @@ function toggleOptions() {
 	}
 }
 
-// save preference in chrome sync data
+// save preference when a slider changes
 function updatePrefs(event) {
 	options[event.target.id] = event.target.checked;
 	chrome.storage.local.set(options);
+
+	// refresh the date if needed
+	var id = event.target.id;
+	if (id == "showDayOfWeek" || id == "showDayOfMonth" || id == "showYear")
+	{
+		formatDateString();
+		updateDate();
+	}
+
+	console.log(event);
 }
 
 // called when one of the gradien selection radios is pressed
@@ -69,12 +74,22 @@ function restoreOptions() {
 		use24HourTime: false,
 		selectMode: "random",
 		currentGradient: 0,
-		gradientSpeed: 25
+		gradientSpeed: 25,
+		showDayOfWeek: true,
+		showDayOfMonth: true,
+		showYear: true
 	}, function(items) {
 		// set up switches according to stored options
-		timeOption.checked = items.showTime;
-		dateOption.checked = items.showDate;
-		use24Time.checked = items.use24HourTime;
+		document.getElementById('showTime').checked = items.showTime;
+		document.getElementById('showDate').checked = items.showDate;
+		document.getElementById('use24HourTime').checked = items.use24HourTime;
+		document.getElementById("showDayOfWeek").checked = items.showDayOfWeek;
+		document.getElementById("showDayOfMonth").checked = items.showDayOfMonth;
+		document.getElementById("showYear").checked = items.showYear;
+
+		// set the slider position to the current value		
+		document.getElementById("opt-speed").value = items.gradientSpeed;
+		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 
 		if (items.selectMode == "random")
 		{
@@ -86,10 +101,6 @@ function restoreOptions() {
 			selectManualOption.checked = true;
 			selectRandomOption.checked = false;
 		}
-
-		// set the slider position to the current value		
-		document.getElementById("opt-speed").value = items.gradientSpeed;
-		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 		
 		// if settings say elements don't display, then hide them
 		if (items.showTime) {
@@ -106,12 +117,38 @@ function resetOptions()
 	var userIsSure = confirm("This will reset all of WaveTab's settings to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
+		// reset and clear options/storage
+		options = {};
+		chrome.storage.local.clear();
+
 		options.showTime = true;
 		options.showDate = true;
 		options.use24HourTime = false;
 		options.selectMode = "random";
 		options.currentGradient = 0;
 		options.gradientSpeed = 25;
+		options.showDayOfWeek = true,
+		options.showDayOfMonth = true,
+		options.showYear = true
+
+		// set the storage
+		chrome.storage.local.set(options);
+
+		// refresh the page so the options are applied
+		document.location.reload();
+	}
+}
+
+function resetDateOptions()
+{
+	var userIsSure = confirm("This will reset WaveTab's date format settings to their defaults. Do you want to continue?");
+	if (userIsSure)
+	{
+		// reset and clear options/storage
+		options.showDate = true;
+		options.showDayOfWeek = true,
+		options.showDayOfMonth = true,
+		options.showYear = true
 
 		// set the storage
 		chrome.storage.local.set(options);

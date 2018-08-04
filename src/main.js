@@ -11,6 +11,7 @@ var debug = false;
 
 // storage object for options
 var options = {};
+var dateString = "ungenerated"; // default string
 
 function updateTime() {
 	chrome.storage.local.get("use24HourTime", function(items) {
@@ -23,7 +24,66 @@ function updateTime() {
 }
 
 function updateDate() {
-	dateElem.textContent = moment().format("dddd, MMMM Do, YYYY");
+	// don't bother if the date string hasn't been generated yet OR is completely hidden
+	if (dateString != "ungenerated" && dateString != "")
+	{
+		// format the text according to the date string
+		dateElem.textContent = moment().format(dateString);
+	}
+	else if (dateString == "") // all pieces were hidden
+	{
+		dateElem.textContent = "";
+	}
+}
+
+function formatDateString()
+{
+	chrome.storage.local.get({
+		showDayOfWeek: true,
+		showDayOfMonth: true,
+		showYear: true
+	}, function (items) {
+		var datePieces = [];
+		var pos = 0;
+
+		// add pieces that will be in the string based on options
+
+		if (items.showDayOfWeek)
+		{
+			datePieces[pos] = "dddd";
+			pos++;
+		}
+
+		if (items.showDayOfMonth)
+		{
+			datePieces[pos] = "MMMM Do";
+			pos++;
+		}
+
+		if (items.showYear)
+		{
+			datePieces[pos] = "YYYY";
+			pos++;
+		}
+
+		// reset the datestring format
+		dateString = "";
+
+		// build the date string
+		for (var i = 0; i < datePieces.length; i++)
+		{
+			// add the next part of the date string
+			dateString += datePieces[i];
+
+			// add a comma separator if there's another piece
+			if (i != datePieces.length - 1)
+			{
+				dateString += ", ";
+			}
+		}
+
+		updateDate();
+	});
 }
 
 function pickColors(num)
@@ -89,6 +149,30 @@ function hideMessage() {
 
 // when the page loads, do all this stuff
 document.addEventListener("DOMContentLoaded", function() {
+	// build the date string
+	formatDateString();
+
+	// load options from storage
+	restoreOptions();
+
+	// setup time and date
+	updateTime();
+	updateDate();
+	setInterval(updateTime, 999);
+	setInterval(updateDate, 1500);
+
+	// load gradient data file
+	readFile();
+
+	// setup event listeners for buttons & options
+	setupEventListeners();
+
+	// show any new messages to the user
+	showWelcomeMessage();
+});
+
+function setupEventListeners()
+{
 	// set up event listeners for checkboxes
 	var checkboxes = document.querySelectorAll("input[type='checkbox']");
 	for (var i = 0; i < checkboxes.length; i++) {
@@ -120,23 +204,25 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("close-msg1").onclick = hideMessage;
 	document.getElementById("close-msg2").onclick = hideMessage;
 	document.getElementById("opt-reset").onclick = resetOptions;
+	document.getElementById("opt-date-reset").onclick = resetDateOptions;
 
 	// setup event listener for range slider
 	document.getElementById("opt-speed").oninput = changeGradientSpeed;
 
 	// add event listener for when storage changes
 	chrome.storage.onChanged.addListener(updateDisplay);
+}
 
-	restoreOptions();
+// quick debug to show a message again
+function enableMessage(msgName)
+{
+	options["show" + msgName] = true;
 
-	setInterval(updateTime, 999);
-	setInterval(updateDate, 1500);
+	chrome.storage.local.set(options);
+}
 
-	updateTime();
-	updateDate();
-
-	readFile();
-
+function showWelcomeMessage()
+{
 	// show welcome message if necessary
 	//chrome.storage.local.clear(); // test line to clear storage & see msg again
 	chrome.storage.local.get({
@@ -161,12 +247,4 @@ document.addEventListener("DOMContentLoaded", function() {
 			chrome.storage.local.set({showV2Msg: false});
 		}
 	});
-});
-
-// quick debug to show a message again
-function enableMessage(msgName)
-{
-	options["show" + msgName] = true;
-
-	chrome.storage.local.set(options);
 }
