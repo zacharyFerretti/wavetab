@@ -49,21 +49,38 @@
 								<input type="checkbox" checked id="showDate">
 								<div class="slider"></div>
 							</label>Show date</li>
+						</ul>
+						<h3>Time Format</h3>
+						<ul class="options-list">
 							<li><label class="switch">
 								<input type="checkbox" id="use24HourTime">
 								<div class="slider"></div>
 							</label>Use 24 hour time</li>
 						</ul>
-						<br>
+						<h3>Date Format</h3>
+						<ul class="options-list">
+							<li><label class="switch">
+								<input type="checkbox" id="showDayOfWeek">
+								<div class="slider"></div>
+							</label>Show day of week</li>
+							<li><label class="switch">
+								<input type="checkbox" id="showDayOfMonth">
+								<div class="slider"></div>
+							</label>Show day of month</li>
+							<li><label class="switch">
+								<input type="checkbox" id="showYear">
+								<div class="slider"></div>
+							</label>Show year</li>
+						</ul>
+						<button id="opt-date-reset" class="btn">Reset date format to default</button>
 						<h3>Reset</h3>
-						<button id="opt-reset">Reset all settings to default</button>
+						<button id="opt-reset" class="btn">Reset all settings to default</button>
 					</div>
 					<div id="opt-gradients" style="display: none" class="opt-container">
 						<h3>Current Gradient Info</h3>
 						<p>Name: <span id="cgName"></span></p>
 						<p>Package: <span id="cgPackage"></span></p>
 						<p>ID: <span id="cgID"></span></p>
-						<br>
 						<h3>Gradient Selection</h3>
 						<div class="radio-container">
 							<input type="radio" name="grad-select" value="random" id="opt-grad-random" class="grad-selection-radio">
@@ -73,7 +90,6 @@
 							<input type="radio" name="grad-select" value="select" id="opt-grad-select" class="grad-selection-radio">
 							<label for="opt-grad-select">Select Manually</label>
 						</div>
-						<br>
 						<h3>Gradient Animation Length</h3>
 						<div class="slide-container">
 							<input type="range" min="5" max="60" value="25" class="range-slider" id="opt-speed">
@@ -92,10 +108,8 @@
 							<br>
 							<a href="https://addons.mozilla.org/en-US/firefox/addon/wavetab-minimal-new-tab-page/" target="_blank">Leave a review</a>
 						</p>
-						<br>
 						<h3>Info</h3>
 						<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a></p>
-						<br>
 						<h3>Libraries</h3>
 						<p><a href="https://fontawesome.com/">Font Awesome</a><br><a href="https://momentjs.com/">Moment.js</a></p>
 					</div>
