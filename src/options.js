@@ -79,8 +79,6 @@ function restoreOptions() {
 		showDayOfMonth: true,
 		showYear: true
 	}, function(items) {
-		formatDateString();
-
 		// set up switches according to stored options
 		document.getElementById('showTime').checked = items.showTime;
 		document.getElementById('showDate').checked = items.showDate;

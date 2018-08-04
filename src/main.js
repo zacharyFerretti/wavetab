@@ -11,7 +11,7 @@ var debug = false;
 
 // storage object for options
 var options = {};
-var dateString = ""; // default string
+var dateString = "ungenerated"; // default string
 
 function updateTime() {
 	chrome.storage.local.get("use24HourTime", function(items) {
@@ -24,12 +24,20 @@ function updateTime() {
 }
 
 function updateDate() {
-	// don't bother if the date string hasn't been generated yet
-	if (dateString != "")
+	// don't bother if the date string hasn't been generated yet OR is completely hidden
+	if (dateString != "ungenerated" && dateString != "")
 	{
 		// format the text according to the date string
 		dateElem.textContent = moment().format(dateString);
 	}
+	else if (dateString == "") // all pieces were hidden
+	{
+		dateElem.textContent = "";
+	}
+	//else
+	//{
+		//dateElem.textContent = "loading...";
+	//}
 }
 
 function formatDateString()
@@ -77,6 +85,8 @@ function formatDateString()
 				dateString += ", ";
 			}
 		}
+
+		updateDate();
 	});
 }
 
@@ -143,6 +153,9 @@ function hideMessage() {
 
 // when the page loads, do all this stuff
 document.addEventListener("DOMContentLoaded", function() {
+	// build the date string
+	formatDateString();
+
 	// load options from storage
 	restoreOptions();
 
