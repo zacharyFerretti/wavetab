@@ -34,10 +34,6 @@ function updateDate() {
 	{
 		dateElem.textContent = "";
 	}
-	//else
-	//{
-		//dateElem.textContent = "loading...";
-	//}
 }
 
 function formatDateString()
