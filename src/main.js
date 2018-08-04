@@ -195,6 +195,7 @@ function setupEventListeners()
 	document.getElementById("close-msg1").onclick = hideMessage;
 	document.getElementById("close-msg2").onclick = hideMessage;
 	document.getElementById("opt-reset").onclick = resetOptions;
+	document.getElementById("opt-date-reset").onclick = resetDateOptions;
 
 	// setup event listener for range slider
 	document.getElementById("opt-speed").oninput = changeGradientSpeed;

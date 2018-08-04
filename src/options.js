@@ -141,6 +141,25 @@ function resetOptions()
 	}
 }
 
+function resetDateOptions()
+{
+	var userIsSure = confirm("This will reset WaveTab's date format settings to their defaults. Do you want to continue?");
+	if (userIsSure)
+	{
+		// reset and clear options/storage
+		options.showDate = true;
+		options.showDayOfWeek = true,
+		options.showDayOfMonth = true,
+		options.showYear = true
+
+		// set the storage
+		chrome.storage.local.set(options);
+
+		// refresh the page so the options are applied
+		document.location.reload();
+	}
+}
+
 // called when storage changes
 function updateDisplay(changes) {
 	for (key in changes) {
