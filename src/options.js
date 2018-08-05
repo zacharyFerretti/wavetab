@@ -30,7 +30,7 @@ function toggleOptions() {
 // save preference when a slider changes
 function updatePrefs(event) {
 	options[event.target.id] = event.target.checked;
-	chrome.storage.local.set(options);
+	chrome.storage.sync.set(options);
 
 	// refresh the date if needed
 	var id = event.target.id;
@@ -48,7 +48,7 @@ function changeSelectionMode(event)
 {
 	// change it to either "random" or "select"
 	options["selectMode"] = event.target.id.substring(9);
-	chrome.storage.local.set(options);
+	chrome.storage.sync.set(options);
 }
 
 // called when the slider for gradient speed is dragged
@@ -59,7 +59,7 @@ function changeGradientSpeed(event)
 
 	// save it to the options obj
 	options["gradientSpeed"] = this.value;
-	chrome.storage.local.set(options);
+	chrome.storage.sync.set(options);
 
 	// update the speed
 	container.style.animation = "Animation " + this.value + "s ease-in-out infinite";
@@ -68,7 +68,7 @@ function changeGradientSpeed(event)
 
 function restoreOptions() {
 	// Use default values
-	chrome.storage.local.get({
+	chrome.storage.sync.get({
 		showTime: true,
 		showDate: true,
 		use24HourTime: false,
@@ -119,7 +119,7 @@ function resetOptions()
 	{
 		// reset and clear options/storage
 		options = {};
-		chrome.storage.local.clear();
+		chrome.storage.sync.clear();
 
 		options.showTime = true;
 		options.showDate = true;
@@ -132,7 +132,7 @@ function resetOptions()
 		options.showYear = true
 
 		// set the storage
-		chrome.storage.local.set(options);
+		chrome.storage.sync.set(options);
 
 		// refresh the page so the options are applied
 		document.location.reload();
@@ -151,7 +151,7 @@ function resetDateOptions()
 		options.showYear = true
 
 		// set the storage
-		chrome.storage.local.set(options);
+		chrome.storage.sync.set(options);
 
 		// refresh the page so the options are applied
 		document.location.reload();

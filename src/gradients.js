@@ -16,7 +16,7 @@ function reqOnLoad()
 {
     gradientData = JSON.parse(this.responseText);
     
-    chrome.storage.local.get({
+    chrome.storage.sync.get({
         currentGradient: 0,
         selectMode: "random"
     }, function(items) {
@@ -64,7 +64,7 @@ function onGradientClick(event)
 	var id = parseInt(event.target.innerText.substring(0, 3));
     pickColors(id);
     
-    chrome.storage.local.set({currentGradient: id});
+    chrome.storage.sync.set({currentGradient: id});
 }
 
 function makeIDString(id)

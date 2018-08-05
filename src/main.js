@@ -14,7 +14,7 @@ var options = {};
 var dateString = "ungenerated"; // default string
 
 function updateTime() {
-	chrome.storage.local.get("use24HourTime", function(items) {
+	chrome.storage.sync.get("use24HourTime", function(items) {
 		if (!items.use24HourTime) {
 			timeElem.textContent = moment().format("h:mm A");
 		} else {
@@ -38,7 +38,7 @@ function updateDate() {
 
 function formatDateString()
 {
-	chrome.storage.local.get({
+	chrome.storage.sync.get({
 		showDayOfWeek: true,
 		showDayOfMonth: true,
 		showYear: true
@@ -106,7 +106,7 @@ function pickColors(num)
 		var colorString = makeColorString(gradientObj.colors);
 
 		// get gradient speed and set it
-		chrome.storage.local.get({
+		chrome.storage.sync.get({
 			gradientSpeed: 25
 		}, function(items) {
 			container.style.background = "linear-gradient(45deg, " + colorString + ")";
@@ -119,7 +119,7 @@ function pickColors(num)
 		cgPackageElem.innerText = gradientObj.package;
 		cgIDElem.innerText = gradientObj.id;
 
-		chrome.storage.local.set({currentGradient: gradientObj.id});
+		chrome.storage.sync.set({currentGradient: gradientObj.id});
 	}
 }
 
@@ -229,14 +229,14 @@ function enableMessage(msgName)
 {
 	options["show" + msgName] = true;
 
-	chrome.storage.local.set(options);
+	chrome.storage.sync.set(options);
 }
 
 function showWelcomeMessage()
 {
 	// show welcome message if necessary
-	//chrome.storage.local.clear(); // test line to clear storage & see msg again
-	chrome.storage.local.get({
+	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
+	chrome.storage.sync.get({
 		showWelcomeMsg: true,
 		showV2Msg: true
 	}, function (items) {
@@ -246,7 +246,7 @@ function showWelcomeMessage()
 			document.getElementById("welcomeMsg").style.display = "block";
 
 			// don't show the welcome or v2 message again
-			chrome.storage.local.set({showWelcomeMsg: false, showV2Msg: false});
+			chrome.storage.sync.set({showWelcomeMsg: false, showV2Msg: false});
 		}
 		// if the user updated to v2
 		else if (items.showV2Msg)
@@ -255,7 +255,7 @@ function showWelcomeMessage()
 			document.getElementById("updateMsg").style.display = "block";
 
 			// don't show the v2 message again
-			chrome.storage.local.set({showV2Msg: false});
+			chrome.storage.sync.set({showV2Msg: false});
 		}
 	});
 }
