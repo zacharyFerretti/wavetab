@@ -38,7 +38,7 @@ function updateBrowserDisplay()
 	{
 		// show the right support/review buttons
 		if (btnContainer != null)
-			btnContainer.innerHTML = "<p>Firefox version coming soon!<p>";
+			btnContainer.innerHTML = '<li><a href="mailto:liz.wigglesworth@gmail.com?subject=Firefox WaveTab Support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
 
 		// hide chrome-related FAQ entries
 		var elements = document.getElementsByClassName("chrome");
