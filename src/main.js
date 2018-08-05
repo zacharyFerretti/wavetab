@@ -7,11 +7,10 @@ var optionsElem = document.getElementById("options");
 
 // flags
 var showingOptions = false;
-var debug = false;
 
 // storage object for options
 var options = {};
-var dateString = "ungenerated"; // default string
+var dateString = "ungenerated";
 
 function updateTime() {
 	chrome.storage.sync.get("use24HourTime", function(items) {
@@ -224,18 +223,9 @@ function setupEventListeners()
 	}
 }
 
-// quick debug to show a message again
-function enableMessage(msgName)
-{
-	options["show" + msgName] = true;
-
-	chrome.storage.sync.set(options);
-}
-
 function showWelcomeMessage()
 {
 	// show welcome message if necessary
-	//chrome.storage.sync.clear(); // test line to clear storage & see msg again
 	chrome.storage.sync.get({
 		showWelcomeMsg: true,
 		showV2Msg: true

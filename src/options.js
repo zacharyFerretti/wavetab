@@ -12,7 +12,7 @@ var cgNameElem = document.getElementById("cgName");
 var cgPackageElem = document.getElementById("cgPackage");
 var cgIDElem = document.getElementById("cgID");
 
-var gradLibContainer = document.getElementById("opt-gradient-library"); // "grad-lib-container"
+var gradLibContainer = document.getElementById("opt-gradient-library");
 
 // switch between showing the options panel and the time/date
 function toggleOptions() {
