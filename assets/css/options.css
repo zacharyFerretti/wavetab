@@ -247,6 +247,7 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
+/* range slider */
 .range-slider {
     -webkit-appearance: none;
     display: inline-block;
