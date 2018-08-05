@@ -39,8 +39,6 @@ function updatePrefs(event) {
 		formatDateString();
 		updateDate();
 	}
-
-	console.log(event);
 }
 
 // called when one of the gradien selection radios is pressed
