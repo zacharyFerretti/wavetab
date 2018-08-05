@@ -1,28 +1,12 @@
-// options groups
-var groupGeneral = document.getElementById("opt-general");
-var groupGradients = document.getElementById("opt-gradients");
-var groupGradientLib = document.getElementById("opt-gradient-library");
-var groupSupport = document.getElementById("opt-support");
-
-var selectRandomOption = document.getElementById("opt-grad-random");
-var selectManualOption = document.getElementById("opt-grad-select");
-
-// gradient options
-var cgNameElem = document.getElementById("cgName");
-var cgPackageElem = document.getElementById("cgPackage");
-var cgIDElem = document.getElementById("cgID");
-
-var gradLibContainer = document.getElementById("opt-gradient-library");
-
 // switch between showing the options panel and the time/date
 function toggleOptions() {
 	if (!showingOptions) {
-		textDisplay.style.display = "none";
-		optionsElem.style.display = "block";
+		document.getElementById("text-display").style.display = "none";
+		document.getElementById("options").style.display = "block";
 		showingOptions = true;
 	} else {
-		textDisplay.style.display = "block";
-		optionsElem.style.display = "none";
+		document.getElementById("text-display").style.display = "block";
+		document.getElementById("options").style.display = "none";
 		showingOptions = false;
 	}
 }
@@ -34,7 +18,9 @@ function updatePrefs(event) {
 
 	// refresh the date if needed
 	var id = event.target.id;
-	if (id == "showDayOfWeek" || id == "showDayOfMonth" || id == "showYear")
+	if (id == "showDayOfWeek" ||
+		id == "showDayOfMonth" ||
+		id == "showYear")
 	{
 		formatDateString();
 		updateDate();
@@ -61,11 +47,11 @@ function changeGradientSpeed(event)
 
 	// update the speed
 	container.style.animation = "Animation " + this.value + "s ease-in-out infinite";
-
 }
 
-function restoreOptions() {
-	// Use default values
+function restoreOptions()
+{
+	// use default values if nothing is set yet
 	chrome.storage.sync.get({
 		showTime: true,
 		showDate: true,
@@ -89,18 +75,19 @@ function restoreOptions() {
 		document.getElementById("opt-speed").value = items.gradientSpeed;
 		document.getElementById("opt-speed-label").innerText = items.gradientSpeed + " seconds";
 
+		// set gradient selection mode switches
 		if (items.selectMode == "random")
 		{
-			selectRandomOption.checked = true;
-			selectManualOption.checked = false;
+			document.getElementById("opt-grad-random").checked = true;
+			document.getElementById("opt-grad-select").checked = false;
 		}
 		else
 		{
-			selectManualOption.checked = true;
-			selectRandomOption.checked = false;
+			document.getElementById("opt-grad-select").checked = true;
+			document.getElementById("opt-grad-random").checked = false;
 		}
 		
-		// if options say elements don't display, then hide them
+		// show elements that are enabled
 		if (items.showTime) {
 			timeElem.style.display = "block";
 		}
@@ -112,7 +99,7 @@ function restoreOptions() {
 
 function resetOptions()
 {
-	var userIsSure = confirm("This will reset all of WaveTab's options to their defaults. Do you want to continue?");
+	var userIsSure = confirm("This will reset all of WaveTab's options to their defaults.\n\nDo you want to continue?");
 	if (userIsSure)
 	{
 		// reset and clear options/storage
@@ -139,10 +126,10 @@ function resetOptions()
 
 function resetDateOptions()
 {
-	var userIsSure = confirm("This will reset WaveTab's date format options to their defaults. Do you want to continue?");
+	var userIsSure = confirm("This will reset WaveTab's date format options to their defaults.\n\nDo you want to continue?");
 	if (userIsSure)
 	{
-		// reset and clear options/storage
+		// set defaults
 		options.showDate = true;
 		options.showDayOfWeek = true,
 		options.showDayOfMonth = true,
@@ -157,25 +144,25 @@ function resetDateOptions()
 }
 
 // called when storage changes
-function updateDisplay(changes) {
-	for (key in changes) {
+function updateDisplay(changes)
+{
+	for (key in changes)
+	{
 		var storageChange = changes[key];
 
 		// hide/display elements that changed
 		switch(key) {
 			case "showTime":
-				if (storageChange.newValue == false) {
+				if (storageChange.newValue == false)
 					timeElem.style.display = "none";
-				} else {
+				else
 					timeElem.style.display = "block";
-				}
 				break;
 			case "showDate":
-				if (storageChange.newValue == false) {
+				if (storageChange.newValue == false)
 					dateElem.style.display = "none";
-				} else {
+				else
 					dateElem.style.display = "block";
-				}
 				break;
 		}
 	}
@@ -197,8 +184,8 @@ function switchTab(event)
 
 function hideOptionsGroups()
 {
-	groupGeneral.style.display = "none";
-	groupGradients.style.display = "none";
-	groupGradientLib.style.display = "none";
-	groupSupport.style.display = "none";
+	document.getElementById("opt-general").style.display = "none";
+	document.getElementById("opt-gradients").style.display = "none";
+	document.getElementById("opt-gradient-library").style.display = "none";
+	document.getElementById("opt-support").style.display = "none";
 }
