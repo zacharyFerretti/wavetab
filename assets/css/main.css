@@ -30,9 +30,9 @@ hr {
     text-align: center;
     justify-content: center;
 
-     /* no select */
-     -moz-user-select: none; /* Firefox */
-     user-select: none; /* Chrome */
+    /* no select */
+    -moz-user-select: none; /* Firefox */
+    user-select: none; /* Chrome */
 }
 
 @keyframes Animation {
