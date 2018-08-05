@@ -120,7 +120,7 @@ function resetOptions()
 		chrome.storage.sync.set(options);
 
 		// refresh the page so the options are applied
-		document.location.reload();
+		initialize();
 	}
 }
 
@@ -139,7 +139,7 @@ function resetDateOptions()
 		chrome.storage.sync.set(options);
 
 		// refresh the page so the options are applied
-		document.location.reload();
+		initialize();
 	}
 }
 
