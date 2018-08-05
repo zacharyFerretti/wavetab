@@ -102,7 +102,7 @@ function restoreOptions() {
 			selectRandomOption.checked = false;
 		}
 		
-		// if settings say elements don't display, then hide them
+		// if options say elements don't display, then hide them
 		if (items.showTime) {
 			timeElem.style.display = "block";
 		}
@@ -114,7 +114,7 @@ function restoreOptions() {
 
 function resetOptions()
 {
-	var userIsSure = confirm("This will reset all of WaveTab's settings to their defaults. Do you want to continue?");
+	var userIsSure = confirm("This will reset all of WaveTab's options to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
 		// reset and clear options/storage
@@ -141,7 +141,7 @@ function resetOptions()
 
 function resetDateOptions()
 {
-	var userIsSure = confirm("This will reset WaveTab's date format settings to their defaults. Do you want to continue?");
+	var userIsSure = confirm("This will reset WaveTab's date format options to their defaults. Do you want to continue?");
 	if (userIsSure)
 	{
 		// reset and clear options/storage
