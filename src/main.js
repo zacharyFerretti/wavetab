@@ -211,6 +211,17 @@ function setupEventListeners()
 
 	// add event listener for when storage changes
 	chrome.storage.onChanged.addListener(updateDisplay);
+
+	// handle keyboard shortcuts
+	document.onkeyup = function (e)
+	{
+		if(e.which == 79) // o
+		{
+			toggleOptions();
+		}
+
+		return false;
+	}
 }
 
 // quick debug to show a message again
