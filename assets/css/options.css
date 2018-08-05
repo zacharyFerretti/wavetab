@@ -120,6 +120,11 @@ input:checked + .slider:before {
     overflow-x: hidden;
 }
 
+#options .opt-container > h3:first-child
+{
+    margin-top: 0px;
+}
+
 .opt-sidebar {
     width: 22%;
     height: 100%;
