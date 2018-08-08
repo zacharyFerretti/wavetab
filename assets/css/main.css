@@ -8,6 +8,13 @@
 */
 
 /* custom */
+
+.main-img {
+	max-height: 286px;
+	height: auto;
+	margin: 20px;
+}
+
 .no-border {
 	border-bottom: none;
 }
