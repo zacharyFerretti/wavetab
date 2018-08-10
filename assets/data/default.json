@@ -1,0 +1,424 @@
+{
+    "default": [
+        {
+            "id": 0,
+            "name": "WaveTab",
+            "colors": ["#8a81fe", "#51d7f4"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 1,
+            "name": "Red + Pink",
+            "colors": ["#ff6060", "#ff509a"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 2,
+            "name": "Yellow + Orange",
+            "colors": ["#fda085", "#f6d365"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 3,
+            "name": "Dark Green + Light Green",
+            "colors": ["#246644", "#7dd04f"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 4,
+            "name": "Pink, Purple, Blue",
+            "colors": ["#ff88a7", "#c5aeff", "#aee5ff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 5,
+            "name": "Purple",
+            "colors": ["#a18cd1", "#fbc2eb"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 6,
+            "name": "Pink",
+            "colors": ["#ff9a9e", "#fecfef"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 7,
+            "name": "Blue + Purple",
+            "colors": ["#fbc2eb", "#a6c1ee"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 8,
+            "name": "Blue",
+            "colors": ["#8db8ff", "#a1e1ff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 9,
+            "name": "Green",
+            "colors": ["#bbff6d", "#7de08b"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 10,
+            "name": "Green + Teal",
+            "colors": ["#43e97b", "#38f9d7"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 11,
+            "name": "Blue + Purple 2",
+            "colors": ["#5ee7df", "#b490ca"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 12,
+            "name": "Deep Purple",
+            "colors": ["#667eea", "#764ba2"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 13,
+            "name": "Lighter Purple",
+            "colors": ["#c995f0", "#dbcfff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 14,
+            "name": "Deep Blue",
+            "colors": ["#6a11cb", "#2575fc"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 15,
+            "name": "Yellow + Orange 2",
+            "colors": ["#fffa86", "#ffdd25"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 16,
+            "name": "Purple + Orange",
+            "colors": ["#d686ff", "#ffdd25"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 17,
+            "name": "Red + Orange",
+            "colors": ["#f33f58", "#ffdd25"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 18,
+            "name": "Red-Pink + Purple",
+            "colors": ["#f33f58", "#8d25ff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 19,
+            "name": "Green + Purple",
+            "colors": ["#3ff36e", "#8d25ff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 20,
+            "name": "Light Blue + Purple",
+            "colors": ["#3ff3da", "#8d25ff"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 21,
+            "name": "Muted Blue + Muted Green",
+            "colors": ["#7dded1", "#61e2a1"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 22,
+            "name": "Muted Purple + Muted Orange",
+            "colors": ["#d47dde", "#f5c070"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 23,
+            "name": "Tempting Azure",
+            "colors": ["#84fab0", "#8fd3f4"],
+            "src": "https://webgradients.com/",
+            "package": "default"
+        },
+        {
+            "id": 24,
+            "name": "Grey + Black",
+            "colors": ["#aca9a9", "#171717"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 25,
+            "name": "Limeade",
+            "colors": ["#A1FFCE", "#ffd1e8"],
+            "src": "https://uigradients.com/#Limeade",
+            "package": "default"
+        },
+        {
+            "id": 26,
+            "name": "Sun on the Horizon",
+            "colors": ["#fceabb", "#f8b500"],
+            "src": "https://uigradients.com/#SunontheHorizon",
+            "package": "default"
+        },
+        {
+            "id": 27,
+            "name": "Mauve",
+            "colors": ["#42275a", "#734b6d"],
+            "src": "https://uigradients.com/#Mauve",
+            "package": "default"
+        },
+        {
+            "id": 28,
+            "name": "Grapefruit Sunset",
+            "colors": ["#e96443", "#904e95"],
+            "src": "https://uigradients.com/#GrapefruitSunset",
+            "package": "default"
+        },
+        {
+            "id": 29,
+            "name": "Decent",
+            "colors": ["#4CA1AF", "#C4E0E5"],
+            "src": "https://uigradients.com/#Decent",
+            "package": "default"
+        },
+        {
+            "id": 30,
+            "name": "Pale Wood",
+            "colors": ["#eacda3", "#d6ae7b"],
+            "src": "https://uigradients.com/#PaleWood",
+            "package": "default"
+        },
+        {
+            "id": 31,
+            "name": "Blush",
+            "colors": ["#B24592", "#F15F79"],
+            "src": "https://uigradients.com/#Blush",
+            "package": "default"
+        },
+        {
+            "id": 32,
+            "name": "Green and Blue",
+            "colors": ["#c2e59c", "#64b3f4"],
+            "src": "https://uigradients.com/#GreenandBlue",
+            "package": "default"
+        },
+        {
+            "id": 33,
+            "name": "Leaf",
+            "colors": ["#73c646", "#8DC26F"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 34,
+            "name": "Deepest Purple",
+            "colors": ["#673AB7", "#512DA8"],
+            "src": "https://uigradients.com/#DeepPurple",
+            "package": "default"
+        },
+        {
+            "id": 35,
+            "name": "Piglet",
+            "colors": ["#ee9ca7", "#ffdde1"],
+            "src": "https://uigradients.com/#Piglet",
+            "package": "default"
+        },
+        {
+            "id": 36,
+            "name": "Friday",
+            "colors": ["#83a4d4", "#b6fbff"],
+            "src": "https://uigradients.com/#Friday",
+            "package": "default"
+        },
+        {
+            "id": 37,
+            "name": "Amethyst",
+            "colors": ["#9D50BB", "#6E48AA"],
+            "src": "https://uigradients.com/#Amethyst",
+            "package": "default"
+        },
+        {
+            "id": 38,
+            "name": "Cherry Blossoms",
+            "colors": ["#FBD3E9", "#BB377D"],
+            "src": "https://uigradients.com/#Cherryblossoms",
+            "package": "default"
+        },
+        {
+            "id": 39,
+            "name": "Dirty Fog",
+            "colors": ["#B993D6", "#8CA6DB"],
+            "src": "https://uigradients.com/#DirtyFog",
+            "package": "default"
+        },
+        {
+            "id": 40,
+            "name": "Reef",
+            "colors": ["#00d2ff", "#3a7bd5"],
+            "src": "https://uigradients.com/#Reef",
+            "package": "default"
+        },
+        {
+            "id": 41,
+            "name": "A Lost Memory",
+            "colors": ["#DE6262", "#FFB88C"],
+            "src": "https://uigradients.com/#ALostMemory",
+            "package": "default"
+        },
+        {
+            "id": 42,
+            "name": "Daylight",
+            "colors": ["#f857a6", "#ff5858"],
+            "src": "https://uigradients.com/#DayTripper",
+            "package": "default"
+        },
+        {
+            "id": 43,
+            "name": "Calm",
+            "colors": ["#5f2c82", "#49a09d"],
+            "src": "https://uigradients.com/#CalmDarya",
+            "package": "default"
+        },
+        {
+            "id": 44,
+            "name": "Tropics",
+            "colors": ["#34f0e0", "#dcf002"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 45,
+            "name": "Mantle",
+            "colors": ["#24C6DC", "#514A9D"],
+            "src": "https://uigradients.com/#Mantle",
+            "package": "default"
+        },
+        {
+            "id": 46,
+            "name": "Moss",
+            "colors": ["#026471", "#71B280"],
+            "src": "https://uigradients.com/#Moss",
+            "package": "default"
+        },
+        {
+            "id": 47,
+            "name": "Warm Flame",
+            "colors": ["#ff9a9e", "#fad0c4"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 48,
+            "name": "Juicy Peach",
+            "colors": ["#ffecd2", "#fcb69f"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 49,
+            "name": "Winter Neva",
+            "colors": ["#a1c4fd", "#c2e9fb"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 50,
+            "name": "Plum Plate",
+            "colors": ["#667eea", "#764ba2"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 51,
+            "name": "Happy Fisher",
+            "colors": ["#89f7fe", "#66a6ff"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 52,
+            "name": "Fly High",
+            "colors": ["#48c6ef", "#6f86d6"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 53,
+            "name": "Cotton Candy",
+            "colors": ["#a6f3fe", "#f6c4e2"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 54,
+            "name": "Great Whale",
+            "colors": ["#a3bded", "#6991c7"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 55,
+            "name": "Rose",
+            "colors": ["#ff758c", "#ff7eb3"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 56,
+            "name": "Healthy Water",
+            "colors": ["#96deda", "#50c9c3"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 57,
+            "name": "Morning Salad",
+            "colors": ["#B7F8DB", "#50A7C2"],
+            "src": "https://digitalsynopsis.com/design/beautiful-color-gradients-backgrounds/",
+            "package": "default"
+        },
+        {
+            "id": 58,
+            "name": "Moonlight",
+            "colors": ["#9c77e9", "#03c6ca"],
+            "src": "",
+            "package": "default"
+        },
+        {
+            "id": 59,
+            "name": "Curtains",
+            "colors": ["#53b4cb", "#6c55b3"],
+            "src": "",
+            "package": "default"
+        }
+    ]
+}

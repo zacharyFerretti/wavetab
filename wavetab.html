@@ -5,241 +5,8 @@
 	<title>New Tab</title>
 
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	<script src="src/moment.js"></script>
-
-	<style>
-		/* local version of Quicksand google web font */
-		@font-face {
-			font-family: "Quicksand";
-			src: url("assets/fonts/Quicksand-Light.woff") format('woff');
-		}
-
-		/* base css */
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-
-		a {
-			color: #ffffff;
-		}
-
-		hr {
-			border-style: solid;
-		}
-
-		/* page background */
-		#container {
-			min-height: 100%;
-
-			background: #ffffff;
-			background-size: 600% 600%;
-			animation: Animation 25s ease-in-out infinite;
-
-			display: flex;
-			text-align: center;
-			justify-content: center;
-		}
-
-		@keyframes Animation {
-			0%{background-position:0% 99%}
-			50%{background-position:100% 2%}
-			100%{background-position:0% 99%}
-		}
-
-		/* time & date */
-		#text-display {
-			color: #ffffff;
-			font-family: 'Quicksand', sans-serif;
-			align-self: center;
-			margin: auto;
-		}
-
-		#time {
-			font-size: 11rem;
-			font-weight: 100;
-			text-shadow: 0px 0px 75px #969696;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			display: none;
-		}
-
-		#date {
-			font-size: 3rem;
-			font-weight: 300;
-			text-shadow: 0px 0px 60px #969696;
-			margin-top: 0px;
-			margin-bottom: 0px;
-			display: none;
-		}
-
-		/* options */
-		#options {
-			font-family: 'Quicksand', sans-serif;
-			color: #ffffff;
-			text-shadow: 0px 0px 40px #969696;
-			font-size: 1.3rem;
-			text-align: left;
-
-			display: none;
-			height: 1%;
-			align-self: center;
-			min-width: 50%;
-			position: relative;
-
-			border: 2px solid #ffffff;
-			padding: 20px;
-			border-radius: 10px;
-
-			background: rgba(119, 119, 119, 0.4);
-		}
-
-		#options h1 {
-			margin-top: 1px;
-			margin-bottom: 1px;
-		}
-
-		#options h2 {
-			margin-top: 20px;
-			margin-bottom: 5px;
-			font-size: 1.5rem;
-		}
-
-		#options p {
-			margin-top: 2px;
-			margin-bottom: 2px;
-		}
-
-		.options-list {
-			list-style: none;
-			padding-left: 0px;
-			margin-top: 5px;
-			margin-bottom: 0px;
-		}
-
-		.options-list li {
-			margin-bottom: 10px;
-		}
-
-		/* welcome message */
-		#welcomeMsg {
-			font-family: 'Quicksand', sans-serif;
-			color: #ffffff;
-			font-size: 1rem;
-			text-align: left;
-
-			border: 2px solid #ffffff;
-			padding: 5px;
-			border-radius: 10px;
-			background: rgba(119, 119, 119, 0.4);
-
-			position: absolute;
-			bottom: 10px;
-			right: 60px;
-			display: none;
-		}
-
-		#welcomeMsg h3, p {
-			margin: 2px;
-		}
-
-		#welcomeMsg .icon {
-			font-size: 1.1rem;
-			position: absolute;
-			top: 5px;
-			right: 5px;
-		}
-
-		#welcomeMsg .popover {
-			position: absolute;
-			top: 35px;
-			right: -10px;
-			border-top: 10px solid transparent;
-			border-bottom: 10px solid transparent;
-			border-left: 10px solid #ffffff;
-		}
-
-		/* font awesome icons */
-		.icon {
-			color: #ffffff;
-			text-shadow: 0px 0px 50px #969696;
-			font-size: 1.4rem;
-			background: none;
-			border: none;
-		}
-
-		#info-icon {
-			opacity: 0.6;
-			transition: .3s;
-			position: absolute;
-			bottom: 10px;
-			right: 10px;
-		}
-
-		#close-icon {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}
-
-		#info-icon:hover {
-			opacity: 1;
-		}
-
-		/* css toggle switch modified from https://www.w3schools.com/howto/howto_css_switch.asp */
-		.switch {
-			position: relative;
-			display: inline-block;
-			width: 50px;
-			height: 20px;
-			top: 3px;
-			margin-right: 10px;
-		}
-
-		/* Hide default HTML checkbox */
-		.switch input {display:none;}
-
-		/* the slider */
-		.slider {
-			position: absolute;
-			cursor: pointer;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(255, 255, 255, 0);
-			border: 1px solid #ffffff;
-			-webkit-transition: .4s;
-			transition: .4s;
-			border-radius: 20px;
-		}
-
-		/* slider circle */
-		.slider:before {
-			position: absolute;
-			content: "";
-			height: 25px;
-			width: 25px;
-			left: -2px;
-			bottom: -4px;
-			background-color: white;
-			-webkit-transition: .4s;
-			transition: .4s;
-			border-radius: 50%;
-		}
-
-		input:checked + .slider {
-			background-color: #dddddd;
-		}
-
-		input:focus + .slider {
-			box-shadow: 0 0 1px #dddddd;
-		}
-
-		input:checked + .slider:before {
-			transform: translateX(28px);
-		}
-	</style>
+	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/options.css">
 </head>
 <body>
 	<div id="container">
@@ -252,42 +19,130 @@
 				<span class="fa fa-times" aria-label="Options"></span>
 			</button>
 			<h1>Options</h1>
-			<h2>Display</h2>
-			<ul class="options-list">
-				<li><label class="switch">
-					<input type="checkbox" checked id="showTime">
-					<div class="slider"></div>
-				</label>Show time</li>
-				<li><label class="switch">
-					<input type="checkbox" checked id="showDate">
-					<div class="slider"></div>
-				</label>Show date</li>
-				<li><label class="switch">
-					<input type="checkbox" id="use24HourTime">
-					<div class="slider"></div>
-				</label>Use 24 hour time</li>
-			</ul>
+			<hr>
+			<div class="opt-container">
+				<div class="opt-sidebar">
+					<div class="opt-tabs">
+						<input type="radio" name="opt-tabs" value="General" id="opt-tab-general" checked class="sidebar-radio">
+						<label for="opt-tab-general"><h2>General</h2></label>
+	
+						<input type="radio" name="opt-tabs" value="Gradients" id="opt-tab-gradients" class="sidebar-radio">
+						<label for="opt-tab-gradients"><h2>Gradients</h2></label>
 
-			<h2>Support</h2>
-			<p><a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a> | <a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a> | <a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" target="_blank">Leave a review</a></p>
-
-			<h2>Info</h2>
-			<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/">Liz Wigglesworth</a><br>
-			<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy</p>
+						<input type="radio" name="opt-tabs" value="Gradient Library" id="opt-tab-gradient-library" class="sidebar-radio">
+						<label for="opt-tab-gradient-library"><h2>Gradient Library</h2></label>
+	
+						<input type="radio" name="opt-tabs" value="Support" id="opt-tab-support" class="sidebar-radio">
+						<label for="opt-tab-support"><h2>Support & Info</h2></label>
+					</div>
+				</div>
+				<div class="opt-main">
+					<div id="opt-general" class="opt-container">
+						<h3>Display</h3>
+						<ul class="options-list">
+							<li><label class="switch">
+								<input type="checkbox" checked id="showTime">
+								<div class="slider"></div>
+							</label>Show time</li>
+							<li><label class="switch">
+								<input type="checkbox" checked id="showDate">
+								<div class="slider"></div>
+							</label>Show date</li>
+						</ul>
+						<h3>Time Format</h3>
+						<ul class="options-list">
+							<li><label class="switch">
+								<input type="checkbox" id="use24HourTime">
+								<div class="slider"></div>
+							</label>Use 24 hour time</li>
+						</ul>
+						<h3>Date Format</h3>
+						<ul class="options-list">
+							<li><label class="switch">
+								<input type="checkbox" id="showDayOfWeek">
+								<div class="slider"></div>
+							</label>Show day of week</li>
+							<li><label class="switch">
+								<input type="checkbox" id="showDayOfMonth">
+								<div class="slider"></div>
+							</label>Show day of month</li>
+							<li><label class="switch">
+								<input type="checkbox" id="showYear">
+								<div class="slider"></div>
+							</label>Show year</li>
+						</ul>
+						<button id="opt-date-reset" class="btn">Reset date format to default</button>
+						<h3>Shortcuts</h3>
+						<p>Press <strong>o</strong> to toggle the options panel.</p>
+						<h3>Reset</h3>
+						<button id="opt-reset" class="btn">Reset all options to default</button>
+					</div>
+					<div id="opt-gradients" style="display: none" class="opt-container">
+						<h3>Current Gradient Info</h3>
+						<p>Name: <span id="cgName"></span></p>
+						<p>Package: <span id="cgPackage"></span></p>
+						<p>ID: <span id="cgID"></span></p>
+						<h3>Gradient Selection</h3>
+						<div class="radio-container">
+							<input type="radio" name="grad-select" value="random" id="opt-grad-random" class="grad-selection-radio">
+							<label for="opt-grad-random">Random Selection</label>
+						</div>
+						<div class="radio-container">
+							<input type="radio" name="grad-select" value="select" id="opt-grad-select" class="grad-selection-radio">
+							<label for="opt-grad-select">Select Manually</label>
+						</div>
+						<h3>Gradient Animation Length</h3>
+						<div class="slide-container">
+							<input type="range" min="5" max="60" value="25" class="range-slider" id="opt-speed">
+							<label for="opt-speed" id="opt-speed-label">seconds</label>
+						</div>
+					</div>
+					<div id="opt-gradient-library" style="display: none" class="opt-container">
+						<h3>Default Gradients</h3>
+					</div>
+					<div id="opt-support" style="display: none" class="opt-container">
+						<h3>Helpful Links</h3>
+						<p>
+							<a href="https://lizgw.github.io/wavetab/" target="_blank">Visit Wavetab's website</a>
+							<br>
+							<a href="https://lizgw.github.io/wavetab/support/" target="_blank">Visit the support page</a>
+							<br>
+							<a href="https://addons.mozilla.org/en-US/firefox/addon/wavetab-minimal-new-tab-page/" target="_blank">Leave a review</a>
+						</p>
+						<h3>Info</h3>
+						<p>Coded with <span class="fa fa-heart" aria-label="love"></span> by <a href="http://lizgw.github.io/" target="_blank">Liz Wigglesworth</a></p>
+						<h3>Libraries</h3>
+						<p><a href="https://fontawesome.com/" target="_blank">Font Awesome</a><br><a href="https://momentjs.com/" target="_blank">Moment.js</a></p>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div id="welcomeMsg">
+		<div id="welcomeMsg" class="pop-message">
 			<div class="popover"></div>
-			<button role="button" id="close-welcome" class="icon">
+			<button role="button" id="close-msg1" class="icon">
 				<span class="fa fa-times" aria-label="Options"></span>
 			</button>
 			<h3>Welcome to WaveTab!</h3>
-			<p>Click the <span class="fa fa-cog" aria-label="Options icon"></span> to change your settings.</p>
+			<p>Click the <span class="fa fa-cog" aria-label="Options icon"></span> to change your options.</p>
+		</div>
+		<div id="updateMsg" class="pop-message">
+			<div class="popover"></div>
+			<button role="button" id="close-msg2" class="icon">
+				<span class="fa fa-times" aria-label="Options"></span>
+			</button>
+			<h3>Welcome to WaveTab version 2.0!</h3>
+			<p>
+				This update brings new customization features and<br>
+				much more! Click <a href="https://lizgw.github.io/wavetab/changelog/" target="_blank">here</a> to see the full changelog.
+			</p>
 		</div>
 		<button role="button" id="info-icon" class="icon">
 			<span class="fa fa-cog" aria-label="Options"></span>
 		</button>
 	</div>
+	<script src="lib/moment.js"></script>
 	<script src="src/main.js"></script>
 	<script src="src/options.js"></script>
+	<script src="src/gradients.js"></script>
 </body>
 </html>

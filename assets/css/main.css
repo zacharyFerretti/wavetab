@@ -1,0 +1,133 @@
+/* local version of Quicksand google web font */
+@font-face {
+    font-family: "Quicksand";
+    src: url("../fonts/Quicksand-Light.woff") format('woff');
+}
+
+/* base css */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+a {
+    color: #ffffff;
+}
+
+hr {
+    border-style: solid;
+}
+
+/* page background */
+#container {
+    min-height: 100%;
+
+    background: #ffffff;
+    background-size: 600% 600%;
+    animation: Animation 25s ease-in-out infinite;
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+    /* no select */
+    -moz-user-select: none; /* Firefox */
+    user-select: none; /* Chrome */
+}
+
+@keyframes Animation {
+    0%{background-position:0% 99%}
+    50%{background-position:100% 2%}
+    100%{background-position:0% 99%}
+}
+
+/* time & date */
+#text-display {
+    color: #ffffff;
+    font-family: 'Quicksand', sans-serif;
+    align-self: center;
+    margin: auto;
+}
+
+#time {
+    font-size: 11rem;
+    font-weight: 100;
+    text-shadow: 0px 0px 75px #969696;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+#date {
+    font-size: 3rem;
+    font-weight: 300;
+    text-shadow: 0px 0px 60px #969696;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: none;
+}
+
+/* welcome messages */
+.pop-message {
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: left;
+
+    border: 2px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgba(119, 119, 119, 0.4);
+
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+    display: none;
+}
+
+.pop-message h3, p {
+    margin: 2px;
+}
+
+.pop-message .icon {
+    font-size: 1.1rem;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.pop-message .popover {
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #ffffff;
+}
+
+/* font awesome icons */
+.icon {
+    color: #ffffff;
+    text-shadow: 0px 0px 50px #969696;
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+}
+
+#info-icon {
+    opacity: 0.6;
+    transition: .3s;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#info-icon:hover {
+    opacity: 1;
+}
