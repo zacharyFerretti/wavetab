@@ -36,10 +36,6 @@ function updateBrowserDisplay()
 	var btnContainer = document.getElementById("browser-btns");
 	if (browser == "Firefox")
 	{
-		// show the right support/review buttons
-		if (btnContainer != null)
-			btnContainer.innerHTML = '<li><a href="mailto:liz.wigglesworth@gmail.com?subject=Firefox WaveTab Support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
-
 		// hide chrome-related FAQ entries
 		var elements = document.getElementsByClassName("chrome");
 		for (var i = 0; i < elements.length; i++){
@@ -56,10 +52,6 @@ function updateBrowserDisplay()
 	}
 	else if (browser == "Chrome")
 	{
-		// show the right support/review buttons
-		if (btnContainer != null)
-			btnContainer.innerHTML = '<li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/support" class="button" target="_blank">Contact Liz</a></li><li><a href="https://chrome.google.com/webstore/detail/wavetab-minimal-new-tab-p/nfdfcgbnfilhjigfdeniiacekbfmknnk/reviews" class="button" target="_blank">Leave a Review</a></li>';
-		
 		// hide firefox FAQ entries
 		var elements = document.getElementsByClassName("firefox");
 		for (var i = 0; i < elements.length; i++){
