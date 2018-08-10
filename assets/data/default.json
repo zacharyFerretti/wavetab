@@ -2,7 +2,7 @@
     "default": [
         {
             "id": 0,
-            "name": "Wavetab",
+            "name": "WaveTab",
             "colors": ["#8a81fe", "#51d7f4"],
             "src": "",
             "package": "default"
