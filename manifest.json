@@ -6,23 +6,23 @@
 	"author": "Liz Wigglesworth",
 	"description": "Turn the new tab page into a beautiful, minimal gradient.",
 
-	"version": "1.0.2",
-	"version_name": "v1.0.2",
+	"version": "2.0.0",
+	"version_name": "v2.0.0",
 
 	"icons": {
-		"16": "assets/images/appicon-16.png",
 		"32": "assets/images/appicon-32.png",
-		"48": "assets/images/appicon-48.png",
-		"128": "assets/images/appicon-128.png"
+		"64": "assets/images/appicon-64.png"
 	},
 
 	"permissions": [
 		"storage"
 	],
 
-	 "offline_enabled": true,
-
 	"chrome_url_overrides" : {
 		"newtab": "wavetab.html"
-	}
+	},
+
+	"web_accessible_resources": [
+		"assets/data/default.json"
+	]
 }
