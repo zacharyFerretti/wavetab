@@ -9,9 +9,19 @@ html, body {
     height: 100%;
     margin: 0;
 }
-
+#bookmarks{
+    font-size: 2.05vw;
+    margin-top: 5vh;
+}
 a {
+    font-size: 2.05vw;
+    transition: .5s;
+    text-decoration: none;
     color: #ffffff;
+}
+a:hover{
+    transition: .5s;
+    color:rgb(112,112,112);
 }
 
 hr {

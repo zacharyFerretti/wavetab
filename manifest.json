@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
 
-	"name": "WaveTab",
-	"short_name": "WaveTab",
-	"author": "Liz Wigglesworth",
-	"description": "Turn the new tab page into a beautiful, minimal gradient.",
+	"name": "WaveTab - With Shortcuts!",
+	"short_name": "WaveTab - Fork",
+	"author": "Zachary Ferretti",
+	"description": "A sleek new tab page with shortcuts!",
 
-	"version": "2.0.0",
+	"version": "1.0.0",
 
 	"icons": {
 		"32": "assets/images/appicon-32.png",
@@ -23,7 +23,7 @@
 
 	"applications": {
 		"gecko": {
-		  "id": "wavetab@lizgw",
+		  "id": "wavetabcustom@zferretti",
 		  "strict_min_version": "54.0"
 		}
 	},
